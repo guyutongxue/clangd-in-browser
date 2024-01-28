@@ -1,0 +1,30 @@
+{
+  "name": "clangd-in-browser",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/emscripten": "^1.39.10",
+    "@types/node": "^20.4.0",
+    "@types/vscode": "~1.85.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "@codingame/monaco-vscode-language-pack-zh-hans": "~1.85.6",
+    "@codingame/monaco-vscode-theme-defaults-default-extension": "~1.85.6",
+    "monaco-editor": "npm:@codingame/monaco-editor-treemended@>=1.85.0 <1.86.0",
+    "monaco-languageclient": ">= 7.3.0 < 7.4.0",
+    "vscode": "npm:@codingame/monaco-vscode-api@>=1.85.0 <1.86.0",
+    "vscode-languageserver": "~9.0.1"
+  },
+  "overrides": {
+    "monaco-editor": "$monaco-editor",
+    "vscode": "$vscode"
+  }
+}
