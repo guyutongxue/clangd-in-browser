@@ -26,5 +26,6 @@
   "overrides": {
     "monaco-editor": "$monaco-editor",
     "vscode": "$vscode"
-  }
+  },
+  "packageManager": "pnpm@8.13.1"
 }

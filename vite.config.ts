@@ -2,7 +2,7 @@ import fs from "node:fs";
 import url from "node:url";
 import { defineConfig } from "vite";
 
-const baseUrl = "/";
+const baseUrl = "/clangd-in-browser/";
 
 export default defineConfig({
   base: baseUrl,

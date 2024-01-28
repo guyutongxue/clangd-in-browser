@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# You cannot directly run this script now; I'm still working on it.
-# But you can use it as a reference to build clangd for wasm32-wasi.
+# It's not recommend for you to run this script directly,
+# (because I'm not good at writing this sorry)
+# but you can use it as a reference for building.
 
-# 0. Dependencies
+# 0. Configs
+
+# sudo apt install vim git build-essential cmake ninja-build python3
 
 ## Note: Better to make sure WASI SDK version matches the LLVM version
 EMSDK_VER=3.1.52
@@ -10,8 +13,6 @@ WASI_SDK_VER=21.0
 WASI_SDK_VER_MAJOR=21
 LLVM_VER=17.0.6
 LLVM_VER_MAJOR=17
-
-sudo apt install vim git build-essential cmake ninja-build python3
 
 WORKSPACE_DIR=$PWD
 ROOT_DIR=$(mktemp -d)
@@ -39,7 +40,7 @@ cd llvm-project
 cmake -G Ninja -S llvm -B build-native \
     -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_ENABLE_PROJECTS=clang
-cmake --build build-native --target llvm-tblgen clang-tblgen clangd
+cmake --build build-native --target llvm-tblgen clang-tblgen
 
 ## Apply a patch for blocking stdin read
 git apply $WORKSPACE_DIR/wait_stdin.patch
@@ -74,7 +75,7 @@ cp -r build/lib/clang/$LLVM_VER_MAJOR/include/* $ROOT_DIR/wasi-sysroot/include/
 ## Build clangd (2nd time, for the real thing)
 emcmake cmake -G Ninja -S llvm -B build \
     -DCMAKE_CXX_FLAGS="-pthread -Dwait4=__syscall_wait4" \
-    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --preload-file=$ROOT_DIR/wasi-sysroot/include@/usr/include" \
+    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s ALLOW_MEMORY_GROWTH -s MAXIMUM_MEMORY=4GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --preload-file=$ROOT_DIR/wasi-sysroot/include@/usr/include" \
     -DCMAKE_BUILD_TYPE=MinSizeRel \
     -DLLVM_TARGET_ARCH=wasm32-emscripten \
     -DLLVM_DEFAULT_TARGET_TRIPLE=wasm32-wasi \
