@@ -25,9 +25,6 @@ dependencies:
     version: 9.0.1
 
 devDependencies:
-  '@leaflink/vite-plugin-importmap':
-    specifier: ^1.0.3
-    version: 1.0.3
   '@types/emscripten':
     specifier: ^1.39.10
     version: 1.39.10
@@ -43,9 +40,6 @@ devDependencies:
   vite:
     specifier: ^5.0.8
     version: 5.0.12(@types/node@20.11.7)
-  vite-plugin-externalize-dependencies:
-    specifier: ^0.11.0
-    version: 0.11.0
 
 packages:
 
@@ -360,11 +354,6 @@ packages:
     dev: true
     optional: true
 
-  /@leaflink/vite-plugin-importmap@1.0.3:
-    resolution: {integrity: sha512-H3tC4UPtND8cLcxaEB/Dkmgzen82fWH+nn1lLFkUjkhrpa6jRTVx5LW2PBvAr/yZllcYJH6xNca330SaHia6qw==}
-    engines: {node: '>=14.18'}
-    dev: true
-
   /@rollup/rollup-android-arm-eabi@4.9.6:
     resolution: {integrity: sha512-MVNXSSYN6QXOulbHpLMKYi60ppyO13W9my1qogeiAqtjb2yR4LSmfU2+POvDkLzhjYLXz9Rf9+9a3zFHW1Lecg==}
     cpu: [arm]
@@ -637,10 +626,6 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-    dev: true
-
-  /vite-plugin-externalize-dependencies@0.11.0:
-    resolution: {integrity: sha512-8a9YJsxdBxvluP60BBFuBHvOxsfwosWXX73mluMQO3lYEdI6KCRyRDqAz5Ch/VYFAz90M58z4waYLPGwiP5b9A==}
     dev: true
 
   /vite@5.0.12(@types/node@20.11.7):
