@@ -12,4 +12,5 @@ int main() {
 `;
 
 await createEditor(document.getElementById("editor")!, code);
+console.log("loading lsp...");
 await createLsp();

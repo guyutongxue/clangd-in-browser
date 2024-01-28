@@ -10,7 +10,9 @@ import {
 declare var self: DedicatedWorkerGlobalScope;
 
 const wasmBase = `${import.meta.env.BASE_URL}wasm/`;
-const { default: Clangd } = await import(/* @vite-ignore */ `${wasmBase}clangd.js`);
+const { default: Clangd } = await import(
+  /* @vite-ignore */ `${wasmBase}clangd.js`
+);
 
 const textEncoder = new TextEncoder();
 let resolveStdinReady = () => {};
@@ -61,7 +63,7 @@ const stdinReady = async () => {
 const onAbort = () => {
   writer.end();
   self.reportError("clangd aborted");
-}
+};
 
 const clangd = await Clangd({
   thisProgram: "/usr/bin/clangd",
@@ -93,7 +95,7 @@ const flags = [
 clangd.FS.writeFile("/home/web_user/main.cpp", "");
 clangd.FS.writeFile(
   `${WORKSPACE_PATH}/.clangd`,
-  JSON.stringify({ CompileFlags: { Add: flags } }),
+  JSON.stringify({ CompileFlags: { Add: flags } })
 );
 
 function startServer() {

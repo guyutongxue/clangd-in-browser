@@ -69,7 +69,7 @@ export function createTheme(name: string, data: typeof LIGHT_THEME): void {
       ...Object.keys(data)
         .filter(
           (key) =>
-            key !== "base" && key !== "background" && key !== "foreground",
+            key !== "base" && key !== "background" && key !== "foreground"
         )
         .map((key) => ({
           token: key,

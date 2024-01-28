@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # You cannot directly run this script now; I'm still working on it.
 # But you can use it as a reference to build clangd for wasm32-wasi.
 

@@ -39,7 +39,7 @@ export async function createEditor(element: HTMLElement, code: string) {
     quickSuggestionsDelay: 200,
     automaticLayout: true,
     inlayHints: {
-      enabled: "offUnlessPressed"
+      enabled: "offUnlessPressed",
     },
   });
 }
