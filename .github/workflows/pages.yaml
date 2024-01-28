@@ -21,7 +21,10 @@ jobs:
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - name: build clangd
-        run: ./build.sh
+        run: |
+          sudo apt update
+          sudo apt install vim git build-essential cmake ninja-build python3
+          ./build.sh
       - run: pnpm build
       - uses: actions/upload-pages-artifact@v1
         with:
