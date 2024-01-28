@@ -1,0 +1,3 @@
+# generated wasm (and js, data) will copied to here
+*
+!.gitignore
