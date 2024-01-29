@@ -20,7 +20,14 @@ jobs:
           node-version: "20"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - name: build clangd
+      - name: cache built clangd
+        id: cache-build
+        uses: actions/cache@v3
+        with:
+          path: ./public/wasm
+          key: build-script-${{ hashFiles('build.sh') }}
+      - if: ${{ steps.cache-build.outputs.cache-hit != 'true' }}
+        name: build clangd
         run: |
           sudo apt update
           sudo apt install vim git build-essential cmake ninja-build python3
@@ -28,7 +35,7 @@ jobs:
       - run: pnpm build
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: "./dist"
+          path: ./dist
   deploy:
     environment:
       name: github-pages
