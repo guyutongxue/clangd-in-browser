@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/clangd.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clangd Web</title>
     <script>window.coi = { quiet: false };</script>
@@ -10,16 +10,34 @@
   </head>
   <body>
     <div id="app">
-      <div id="editor"></div>
-      <div id="buildPanel" class="display-none"></div>
+      <div id="editor">
+        <div class="loader"></div>
+      </div>
+      <div id="buildPanel" class="display-none">
+        <div id="buildPanelResize"></div>
+        <div id="buildPanelBody">
+          <div id="buildPanelHeader">
+            <button class="success" id="run"><i class="icon icon-run"></i>Run code</button>
+            <div class="button-group" id="buildPanelTab">
+              <button>Input</button>
+              <button active>Output</button>
+              <button>Compiler Diagnostics</button>
+            </div>
+            <div class="spacer"></div>
+            <button class="danger" id="closeBuildPanel"><i class="icon icon-close"></i></button>
+          </div>
+          <textarea class="io display-none" id="buildPanelInput" placeholder="Type input here..."></textarea>
+          <pre class="io" id="buildPanelOutput"></pre>
+        </div>
+      </div>
       <div id="footer">
         <div>
           <div id="status"></div>
           <div id="progress"></div>
         </div>
         <div>
-          <button id="showBuildPanel"><i class="icon build-icon"></i></button>
-          <button id="toggleTheme"><i class="icon toggle-theme-icon"></i></button>
+          <button id="showBuildPanel"><i class="icon icon-run"></i></button>
+          <button id="toggleTheme"><i class="icon icon-toggle-theme"></i></button>
         <span> <a href="https://guyutongxue.site" target="_blank">Guyutongxue</a> &copy; 2024</span>
         </div>
       </div>

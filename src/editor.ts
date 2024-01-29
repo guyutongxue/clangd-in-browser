@@ -1,4 +1,4 @@
-import "@codingame/monaco-vscode-language-pack-zh-hans";
+// import "@codingame/monaco-vscode-language-pack-zh-hans";
 import "monaco-editor/esm/vs/basic-languages/cpp/cpp.contribution";
 import { createConfiguredEditor } from "vscode/monaco";
 import { editor } from "monaco-editor";
@@ -12,6 +12,8 @@ import { FILE_PATH, LANGUAGE_ID, WORKSPACE_PATH } from "./config";
 
 const self = globalThis as any;
 self.MonacoEnvironment = { getWorker: () => new EditorWorker() };
+
+let editorInstance: ReturnType<typeof createConfiguredEditor> | null = null;
 
 export async function createEditor(element: HTMLElement, code: string) {
   await initServices({
@@ -35,7 +37,8 @@ export async function createEditor(element: HTMLElement, code: string) {
 
   const isDark = document.body.classList.contains("dark");
 
-  return createConfiguredEditor(element, {
+  element.innerHTML = "";
+  editorInstance = createConfiguredEditor(element, {
     model: editor.createModel(code, LANGUAGE_ID, modelUrl),
     theme: isDark ? "dark-plus" : "light-plus",
     quickSuggestionsDelay: 200,
@@ -46,9 +49,14 @@ export async function createEditor(element: HTMLElement, code: string) {
   });
 }
 
+export function getEditorValue() {
+  return editorInstance?.getValue() ?? "";
+}
+
 function toggleTheme() {
   const isDark = document.body.classList.toggle("dark");
   editor.setTheme(isDark ? "dark-plus" : "light-plus");
   localStorage.setItem("color-theme", isDark ? "dark" : "light");
 }
 document.querySelector("#toggleTheme")!.addEventListener("click", toggleTheme);
+

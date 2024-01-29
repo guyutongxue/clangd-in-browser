@@ -1,8 +1,8 @@
 import "./style.css";
+import "./ui";
 
 import { createEditor } from "./editor";
 import { createLsp } from "./client";
-import "./build";
 
 if (!globalThis.crossOriginIsolated) {
   document.body.innerHTML = "This page requires cross-origin isolation to work properly. Page will reload in 3s.";

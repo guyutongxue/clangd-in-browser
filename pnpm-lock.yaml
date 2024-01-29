@@ -11,6 +11,9 @@ dependencies:
   '@codingame/monaco-vscode-theme-defaults-default-extension':
     specifier: ~1.85.6
     version: 1.85.6
+  ansi_up:
+    specifier: ^6.0.2
+    version: 6.0.2
   iframe-resizer:
     specifier: ^4.3.9
     version: 4.3.9
@@ -478,6 +481,10 @@ packages:
   /@types/vscode@1.85.0:
     resolution: {integrity: sha512-CF/RBon/GXwdfmnjZj0WTUMZN5H6YITOfBCP4iEZlOtVQXuzw6t7Le7+cR+7JzdMrnlm7Mfp49Oj2TuSXIWo3g==}
     dev: true
+
+  /ansi_up@6.0.2:
+    resolution: {integrity: sha512-3G3vKvl1ilEp7J1u6BmULpMA0xVoW/f4Ekqhl8RTrJrhEBkonKn5k3bUc5Xt+qDayA6iDX0jyUh3AbZjB/l0tw==}
+    dev: false
 
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}

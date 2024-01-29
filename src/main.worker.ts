@@ -1,6 +1,6 @@
 /// <reference lib="WebWorker" />
 
-import { WORKSPACE_PATH } from "./config";
+import { COMPILE_ARGS, FILE_PATH, WORKSPACE_PATH } from "./config";
 import { JsonStream } from "./json_stream";
 import {
   BrowserMessageReader,
@@ -10,6 +10,17 @@ import {
 declare var self: DedicatedWorkerGlobalScope;
 
 const wasmBase = `${import.meta.env.BASE_URL}wasm/`;
+const prefetched: Record<string, string> = Object.fromEntries(
+  await Promise.all(
+    ["clangd.wasm", "clangd.data"].map(async (name) => {
+      const url = `${wasmBase}${name}`;
+      const blob = await fetch(url).then((r) => r.blob());
+      const dataUrl = URL.createObjectURL(blob);
+      return [name, dataUrl];
+    })
+  )
+);
+
 const { default: Clangd } = await import(
   /* @vite-ignore */ `${wasmBase}clangd.js`
 );
@@ -68,10 +79,7 @@ const onAbort = () => {
 const clangd = await Clangd({
   thisProgram: "/usr/bin/clangd",
   locateFile: (path: string, prefix: string) => {
-    if (path.endsWith(".data")) {
-      prefix = `${import.meta.env.BASE_URL}wasm/`;
-    }
-    return `${prefix}${path}`;
+    return prefetched[path] ?? `${prefix}${path}`;
   },
   stdinReady,
   stdin,
@@ -83,16 +91,13 @@ const clangd = await Clangd({
 console.log(clangd);
 
 const flags = [
-  "-xc++",
-  "-std=c++2b",
-  "-pedantic-errors",
-  "-Wall",
+  ...COMPILE_ARGS,
   // "--target=wasm32-wasi",
   "-isystem/usr/include/c++/v1",
   "-isystem/usr/include/",
 ];
 
-clangd.FS.writeFile("/home/web_user/main.cpp", "");
+clangd.FS.writeFile(FILE_PATH, "");
 clangd.FS.writeFile(
   `${WORKSPACE_PATH}/.clangd`,
   JSON.stringify({ CompileFlags: { Add: flags } })
