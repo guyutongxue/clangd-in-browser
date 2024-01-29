@@ -8,12 +8,10 @@ import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import { Uri } from "vscode";
 
 import { LIGHT_THEME, DARK_THEME, createTheme } from "./theme";
-import { FILE_PATH, LANGUAGE_ID, WORKSPACE_PATH } from "./config";
+import { FILE_PATH, LANGUAGE_ID, WORKSPACE_PATH, editorValueGetter } from "./config";
 
 const self = globalThis as any;
 self.MonacoEnvironment = { getWorker: () => new EditorWorker() };
-
-let editorInstance: ReturnType<typeof createConfiguredEditor> | null = null;
 
 export async function createEditor(element: HTMLElement, code: string) {
   await initServices({
@@ -30,33 +28,30 @@ export async function createEditor(element: HTMLElement, code: string) {
     },
   });
 
-  createTheme("light-plus", LIGHT_THEME);
-  createTheme("dark-plus", DARK_THEME);
+  createTheme("light", LIGHT_THEME);
+  createTheme("dark", DARK_THEME);
 
   const modelUrl = Uri.parse(FILE_PATH);
 
   const isDark = document.body.classList.contains("dark");
 
   element.innerHTML = "";
-  editorInstance = createConfiguredEditor(element, {
+  const editorInstance = createConfiguredEditor(element, {
     model: editor.createModel(code, LANGUAGE_ID, modelUrl),
-    theme: isDark ? "dark-plus" : "light-plus",
+    theme: isDark ? "dark" : "light",
     quickSuggestionsDelay: 200,
     automaticLayout: true,
     inlayHints: {
       enabled: "offUnlessPressed",
     },
   });
+  editorValueGetter.get = () => editorInstance.getValue();
+  return editorInstance;
 }
 
-export function getEditorValue() {
-  return editorInstance?.getValue() ?? "";
+function toggleEditorTheme() {
+  const isDark = document.body.classList.contains("dark");
+  editor.setTheme(isDark ? "dark" : "light");
 }
-
-function toggleTheme() {
-  const isDark = document.body.classList.toggle("dark");
-  editor.setTheme(isDark ? "dark-plus" : "light-plus");
-  localStorage.setItem("color-theme", isDark ? "dark" : "light");
-}
-document.querySelector("#toggleTheme")!.addEventListener("click", toggleTheme);
+document.querySelector("#toggleTheme")!.addEventListener("click", toggleEditorTheme);
 

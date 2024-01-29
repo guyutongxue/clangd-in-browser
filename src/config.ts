@@ -8,3 +8,7 @@ export const COMPILE_ARGS = [
   "-pedantic-errors",
   "-Wall",
 ];
+
+export const editorValueGetter = {
+  get: () => ""
+};

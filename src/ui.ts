@@ -1,6 +1,7 @@
-import { getEditorValue } from "./editor";
+import { editorValueGetter } from "./config";
 import { runCode } from "./runner";
 
+const toggleThemeBtn = document.querySelector<HTMLButtonElement>("#toggleTheme")!;
 const buildPanel = document.querySelector<HTMLElement>("#buildPanel")!;
 const showBuildPanel = document.querySelector<HTMLElement>("#showBuildPanel")!;
 const resizeHandle = document.querySelector<HTMLElement>("#buildPanelResize")!;
@@ -96,10 +97,9 @@ async function compileAndRun() {
       stderr,
       didExecute;
     ({ stdout, stderr, diagnostics, didExecute } = await runCode(
-      getEditorValue(),
+      editorValueGetter.get(),
       { stdin }
     ));
-    console.log(stdout, stderr);
     const outputContainer = document.createElement("pre");
     const stdoutEl = document.createElement("span");
     stdoutEl.innerText = stdout;
@@ -118,5 +118,11 @@ async function compileAndRun() {
   }
 }
 runBtn.addEventListener("click", compileAndRun);
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle("dark");
+  localStorage.setItem("color-theme", isDark ? "dark" : "light");
+}
+toggleThemeBtn.addEventListener("click", toggleTheme);
 
 export {};

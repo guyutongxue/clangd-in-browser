@@ -1,3 +1,4 @@
+import "./editor";
 import { CloseAction, ErrorAction } from "vscode-languageclient";
 import {
   BrowserMessageReader,
@@ -5,34 +6,22 @@ import {
 } from "vscode-languageclient/browser";
 import { MonacoLanguageClient } from "monaco-languageclient";
 
-import ClangdWorker from "./main.worker?worker";
 import { LANGUAGE_ID } from "./config";
+import { createServer } from "./server";
 
-let lspRunning = false;
+let clientRunning = false;
 let retry = 0;
 let succeeded = false;
 
-export async function createLsp() {
-  if (lspRunning) {
-    console.warn("LSP already running");
+export async function createClient(serverWorker: Worker) {
+  if (clientRunning) {
+    console.warn("Client already running");
   }
-  lspRunning = true;
-  let clangdResolve = () => {};
-  const clangdReady = new Promise<void>((r) => (clangdResolve = r));
-  const worker = new ClangdWorker();
-  const readyListener = (e: MessageEvent) => {
-    if (e.data === "ready") {
-      clangdResolve();
-      worker.removeEventListener("message", readyListener);
-    }
-  };
-  worker.addEventListener("message", readyListener);
-  worker.addEventListener("error", restart);
+  clientRunning = true;
 
-  await clangdReady;
-
-  const reader = new BrowserMessageReader(worker);
-  const writer = new BrowserMessageWriter(worker);
+  serverWorker.addEventListener("error", restart);
+  const reader = new BrowserMessageReader(serverWorker);
+  const writer = new BrowserMessageWriter(serverWorker);
   const readerOnError = reader.onError(() => restart);
   const readerOnClose = reader.onClose(() => restart);
   const successCallback = reader.listen(() => {
@@ -55,9 +44,9 @@ export async function createLsp() {
   });
 
   async function restart() {
-    if (lspRunning) {
+    if (clientRunning) {
       try {
-        lspRunning = false;
+        clientRunning = false;
         await client.stop();
         await client.dispose();
         readerOnError.dispose();
@@ -65,16 +54,24 @@ export async function createLsp() {
         writer.end();
         writer.dispose();
         reader.dispose();
-        worker.terminate();
+        serverWorker.terminate();
       } finally {
         retry++;
         if (retry > 5 && !succeeded) {
           console.error("Failed to start clangd after 5 retries");
           return;
         }
-        setTimeout(createLsp, 1000);
+        setTimeout(recreateLsp, 1000);
       }
     }
   }
   client.start();
 }
+
+async function recreateLsp() {
+  console.log("reloading lsp...");
+  const serverWorker = await createServer();
+  createClient(serverWorker);
+}
+
+export { createEditor } from "./editor";
