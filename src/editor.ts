@@ -33,9 +33,11 @@ export async function createEditor(element: HTMLElement, code: string) {
 
   const modelUrl = Uri.parse(FILE_PATH);
 
-  createConfiguredEditor(element, {
+  const isDark = document.body.classList.contains("dark");
+
+  return createConfiguredEditor(element, {
     model: editor.createModel(code, LANGUAGE_ID, modelUrl),
-    theme: "light-plus",
+    theme: isDark ? "dark-plus" : "light-plus",
     quickSuggestionsDelay: 200,
     automaticLayout: true,
     inlayHints: {
@@ -43,3 +45,10 @@ export async function createEditor(element: HTMLElement, code: string) {
     },
   });
 }
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle("dark");
+  editor.setTheme(isDark ? "dark-plus" : "light-plus");
+  localStorage.setItem("color-theme", isDark ? "dark" : "light");
+}
+document.querySelector("#toggleTheme")!.addEventListener("click", toggleTheme);

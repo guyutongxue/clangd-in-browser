@@ -5,10 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clangd Web</title>
-    <script async src="https://www.unpkg.com/iframe-resizer@4.3.9/js/iframeResizer.contentWindow.js"></script>
+    <script>window.coi = { quiet: false };</script>
+    <script src="/sw.js" ></script>
   </head>
   <body>
-    <div id="editor"></div>
+    <div id="app">
+      <div id="editor"></div>
+      <div id="buildPanel" class="display-none"></div>
+      <div id="footer">
+        <div>
+          <div id="status"></div>
+          <div id="progress"></div>
+        </div>
+        <div>
+          <button id="showBuildPanel"><i class="icon build-icon"></i></button>
+          <button id="toggleTheme"><i class="icon toggle-theme-icon"></i></button>
+        <span> <a href="https://guyutongxue.site" target="_blank">Guyutongxue</a> &copy; 2024</span>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

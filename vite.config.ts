@@ -9,12 +9,6 @@ export default defineConfig({
   build: {
     target: "es2022"
   },
-  server: {
-    headers: {
-      "Cross-Origin-Opener-Policy": "same-origin",
-      "Cross-Origin-Embedder-Policy": "require-corp",
-    },
-  },
   // https://github.com/CodinGame/monaco-vscode-api?tab=readme-ov-file#if-you-use-vite
   optimizeDeps: {
     esbuildOptions: {

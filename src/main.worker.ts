@@ -84,7 +84,7 @@ console.log(clangd);
 
 const flags = [
   "-xc++",
-  "-std=c++2a",
+  "-std=c++2b",
   "-pedantic-errors",
   "-Wall",
   // "--target=wasm32-wasi",

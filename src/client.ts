@@ -9,6 +9,8 @@ import ClangdWorker from "./main.worker?worker";
 import { LANGUAGE_ID } from "./config";
 
 let lspRunning = false;
+let retry = 0;
+let succeeded = false;
 
 export async function createLsp() {
   if (lspRunning) {
@@ -33,6 +35,10 @@ export async function createLsp() {
   const writer = new BrowserMessageWriter(worker);
   const readerOnError = reader.onError(() => restart);
   const readerOnClose = reader.onClose(() => restart);
+  const successCallback = reader.listen(() => {
+    succeeded = true;
+    successCallback.dispose();
+  });
 
   const client = new MonacoLanguageClient({
     name: "Monaco Language Client",
@@ -61,6 +67,11 @@ export async function createLsp() {
         reader.dispose();
         worker.terminate();
       } finally {
+        retry++;
+        if (retry > 5 && !succeeded) {
+          console.error("Failed to start clangd after 5 retries");
+          return;
+        }
         setTimeout(createLsp, 1000);
       }
     }

@@ -11,6 +11,9 @@ dependencies:
   '@codingame/monaco-vscode-theme-defaults-default-extension':
     specifier: ~1.85.6
     version: 1.85.6
+  iframe-resizer:
+    specifier: ^4.3.9
+    version: 4.3.9
   monaco-editor:
     specifier: npm:@codingame/monaco-editor-treemended@>=1.85.0 <1.86.0
     version: /@codingame/monaco-editor-treemended@1.85.6
@@ -524,6 +527,11 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /iframe-resizer@4.3.9:
+    resolution: {integrity: sha512-MCt+V/THB4a9OcAdrWo5NsI2CRpeMM4ijhTfiLtsdgDJXWYXf62Ve8yO8rKGmYNs991zty/EolYOxActlkfU+A==}
+    engines: {node: '>=0.8.0'}
+    dev: false
 
   /lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
