@@ -14,7 +14,7 @@ export async function createServer() {
         break;
       }
       case "progress": {
-        setClangdStatus(e.data.value, e.data.progress);
+        setClangdStatus(e.data.value, e.data.max);
         break;
       }
     }

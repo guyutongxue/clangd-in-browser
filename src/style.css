@@ -150,6 +150,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.25em;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
   }
   button:hover:not([disabled], .disabled, :disabled) {
     color: var(--btn-text-hover-color, var(--btn-text-color));
@@ -404,7 +406,8 @@ a {
 }
 
 [data-tooltip]::after {
-  display: none;
+  visibility: hidden;
+  display: block;
   content: var(--tooltip-text, attr(data-tooltip));
   position: absolute;
   top: -0.5em;
@@ -418,11 +421,12 @@ a {
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 20;
 }
 
 [data-tooltip]:hover::after {
-  display: block;
+  visibility: visible;
   opacity: 1;
 }
 
