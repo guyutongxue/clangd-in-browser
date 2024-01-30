@@ -15,7 +15,7 @@ const jsModule = import(  /* @vite-ignore */ `${wasmBase}clangd.js`);
 
 // Pre-fetch wasm, and report progress to main
 const wasmResponse = await fetch(wasmUrl);
-const wasmSize = wasmResponse.headers.get("Content-Length");
+const wasmSize = wasmResponse.headers.get("Content-Length") ?? __WASM_SIZE__;
 const wasmReader = wasmResponse.body!.getReader();
 let receivedLength = 0;
 let chunks: Uint8Array[] = [];

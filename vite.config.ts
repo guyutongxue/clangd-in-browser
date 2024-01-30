@@ -45,5 +45,9 @@ export default defineConfig({
   },
   resolve: {
     dedupe: ['monaco-editor', 'vscode'],
+  },
+  define: {
+    // Server may not provide Content-Length header, get it in build time
+    __WASM_SIZE__: fs.statSync("public/wasm/clangd.wasm").size,
   }
 });
