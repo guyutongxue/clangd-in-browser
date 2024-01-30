@@ -224,6 +224,10 @@ body {
     overflow: auto;
     user-select: text;
   }
+
+  hr {
+    border-color: var(--c-bg-lighter);
+  }
 }
 
 .spacer {

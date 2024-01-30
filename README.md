@@ -6,7 +6,7 @@ This repo contains a build script for clangd on WebAssembly (TBD), and an exampl
 
 ## How to build
 
-I'm working on the build instruction, but you can take a look at `build.sh`.
+You can take a look at `build.sh` for how to build clangd to WASM. Once `clangd.wasm` generated at `public/wasm`, you can build those frontend code using `pnpm install` and `pnpm build`.
 
 ## About the example page
 

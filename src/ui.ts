@@ -57,11 +57,13 @@ function showInput() {
   outputEl.classList.add("display-none");
 }
 const EMPTY_HINT_HTML = `<span style="user-select: none; color: var(--c-text-light)">No output.</span>`;
+const RESULT_COPY_HTML = `
+<hr><span style="user-select: none; color: var(--c-text-light)">Compilation provided by <a href="https://godbolt.org" target="_blank">Compiler Explorer</a></span>`;
 function showOutput(text: string) {
   if (text === "") {
     text = EMPTY_HINT_HTML;
   }
-  outputEl.innerHTML = text;
+  outputEl.innerHTML = text + RESULT_COPY_HTML;
   outputEl.classList.remove("display-none");
   inputEl.classList.add("display-none");
 }
@@ -135,7 +137,9 @@ function toggleTheme() {
 }
 toggleThemeBtn.addEventListener("click", toggleTheme);
 
-export function setClangdStatus(status: "ready" | "indeterminate" | "disabled"): void;
+export function setClangdStatus(
+  status: "ready" | "indeterminate" | "disabled"
+): void;
 export function setClangdStatus(value: number, max: number): void;
 export function setClangdStatus(strOrVal: string | number, max?: number) {
   if (typeof strOrVal === "number") {
