@@ -8,6 +8,7 @@ import { MonacoLanguageClient } from "monaco-languageclient";
 
 import { LANGUAGE_ID } from "./config";
 import { createServer } from "./server";
+import { setClangdStatus } from "./ui";
 
 let clientRunning = false;
 let retry = 0;
@@ -26,6 +27,7 @@ export async function createClient(serverWorker: Worker) {
   const readerOnClose = reader.onClose(() => restart);
   const successCallback = reader.listen(() => {
     succeeded = true;
+    setClangdStatus("ready");
     successCallback.dispose();
   });
 
@@ -47,6 +49,7 @@ export async function createClient(serverWorker: Worker) {
     if (clientRunning) {
       try {
         clientRunning = false;
+        setClangdStatus("indeterminate");
         await client.stop();
         await client.dispose();
         readerOnError.dispose();

@@ -10,20 +10,34 @@ import {
 declare var self: DedicatedWorkerGlobalScope;
 
 const wasmBase = `${import.meta.env.BASE_URL}wasm/`;
-const prefetched: Record<string, string> = Object.fromEntries(
-  await Promise.all(
-    ["clangd.wasm", "clangd.data"].map(async (name) => {
-      const url = `${wasmBase}${name}`;
-      const blob = await fetch(url).then((r) => r.blob());
-      const dataUrl = URL.createObjectURL(blob);
-      return [name, dataUrl];
-    })
-  )
-);
+const wasmUrl = `${wasmBase}clangd.wasm`;
+const jsModule = import(  /* @vite-ignore */ `${wasmBase}clangd.js`);
 
-const { default: Clangd } = await import(
-  /* @vite-ignore */ `${wasmBase}clangd.js`
-);
+// Pre-fetch wasm, and report progress to main
+const wasmResponse = await fetch(wasmUrl);
+const wasmSize = wasmResponse.headers.get("Content-Length");
+const wasmReader = wasmResponse.body!.getReader();
+let receivedLength = 0;
+let chunks: Uint8Array[] = [];
+while (true) {
+  const { done, value } = await wasmReader.read();
+  if (done) {
+    break;
+  }
+  if (value) {
+    chunks.push(value);
+    receivedLength += value.length;
+    self.postMessage({
+      type: "progress",
+      value: receivedLength,
+      max: Number(wasmSize),
+    });
+  }
+}
+const wasmBlob = new Blob(chunks, { type: "application/wasm" });
+const wasmDataUrl = URL.createObjectURL(wasmBlob);
+
+const { default: Clangd } = await jsModule;
 
 const textEncoder = new TextEncoder();
 let resolveStdinReady = () => {};
@@ -79,7 +93,7 @@ const onAbort = () => {
 const clangd = await Clangd({
   thisProgram: "/usr/bin/clangd",
   locateFile: (path: string, prefix: string) => {
-    return prefetched[path] ?? `${prefix}${path}`;
+    return path.endsWith(".wasm") ? wasmDataUrl : `${prefix}${path}`;
   },
   stdinReady,
   stdin,
@@ -109,7 +123,7 @@ function startServer() {
 }
 startServer();
 
-self.postMessage("ready");
+self.postMessage({ type: "ready" });
 
 const reader = new BrowserMessageReader(self);
 const writer = new BrowserMessageWriter(self);

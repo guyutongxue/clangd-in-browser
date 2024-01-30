@@ -1,6 +1,7 @@
 import { editorValueGetter } from "./config";
 import { runCode } from "./runner";
 
+const status = document.querySelector<HTMLElement>("#status")!;
 const toggleThemeBtn = document.querySelector<HTMLButtonElement>("#toggleTheme")!;
 const buildPanel = document.querySelector<HTMLElement>("#buildPanel")!;
 const showBuildPanel = document.querySelector<HTMLElement>("#showBuildPanel")!;
@@ -125,4 +126,19 @@ function toggleTheme() {
 }
 toggleThemeBtn.addEventListener("click", toggleTheme);
 
-export {};
+export function setClangdStatus(status: "ready" | "indeterminate"): void;
+export function setClangdStatus(value: number, max: number): void;
+export function setClangdStatus(strOrVal: string | number, max?: number) {
+  if (typeof strOrVal === "number") {
+    status.removeAttribute("data-ready");
+    status.removeAttribute("data-indeterminate");
+    status.style.setProperty("--progress-value", `${strOrVal}`);
+    status.style.setProperty("--progress-max", `${max}`);
+  } else if (strOrVal === "ready") {
+    status.setAttribute("data-ready", "");
+    status.removeAttribute("data-indeterminate");
+  } else if (strOrVal === "indeterminate") {
+    status.removeAttribute("data-ready");
+    status.setAttribute("data-indeterminate", "");
+  }
+}

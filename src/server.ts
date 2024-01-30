@@ -1,13 +1,22 @@
 import ClangdWorker from "./main.worker?worker";
+import { setClangdStatus } from "./ui";
 
 export async function createServer() {
   let clangdResolve = () => {};
   const clangdReady = new Promise<void>((r) => (clangdResolve = r));
   const worker = new ClangdWorker();
   const readyListener = (e: MessageEvent) => {
-    if (e.data === "ready") {
-      clangdResolve();
-      worker.removeEventListener("message", readyListener);
+    switch (e.data?.type) {
+      case "ready": {
+        clangdResolve();
+        worker.removeEventListener("message", readyListener);
+        setClangdStatus("indeterminate");
+        break;
+      }
+      case "progress": {
+        setClangdStatus(e.data.value, e.data.progress);
+        break;
+      }
     }
   };
   worker.addEventListener("message", readyListener);

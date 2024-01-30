@@ -42,7 +42,8 @@ body.dark {
   min-width: 0;
 }
 
-button, textarea {
+button,
+textarea {
   all: unset;
 }
 
@@ -101,6 +102,7 @@ body {
   }
   &:has(.loader)::after {
     content: "Loading Monaco Editor";
+    color: var(--c-text-light);
   }
 }
 
@@ -208,7 +210,6 @@ body {
     }
   }
 
-
   .io {
     margin: 0;
     flex-grow: 1;
@@ -259,6 +260,64 @@ body {
   }
 }
 
+#status {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.5em;
+  --progress-value: 0;
+  --progress-max: 1;
+  --tooltip-text: "Clangd is loading";
+
+  &[data-ready] {
+    --tooltip-text: "Clangd is ready";
+  }
+}
+
+#progress {
+  width: 8em;
+  padding: 0 0.5em;
+  margin: auto;
+}
+[data-ready] #progress {
+  display: none;
+}
+
+.progress-bar {
+  height: 0.5em;
+  background-color: var(--c-bg);
+  border-radius: 0.25em;
+  position: relative;
+}
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: block;
+  background-color: var(--c-accent);
+  border-radius: 0.25em;
+  --width: calc(var(--progress-value, 0) / var(--progress-max, 1) * 100%);
+  width: var(--width, 0);
+  transition: left width 0.3s ease-in-out;
+}
+[data-indeterminate] .progress-bar::before {
+  --width: 33%;
+  animation: progress-bar-indeterminate 2s ease-in-out infinite;
+}
+@keyframes progress-bar-indeterminate {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: calc(100% - var(--width, 0));
+  }
+  100% {
+    left: 0%;
+  }
+}
+
 a {
   color: var(--c-accent);
   text-decoration: none;
@@ -269,6 +328,28 @@ a {
   vertical-align: middle;
 }
 
+.icon-loading {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cg fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2'%3E%3Cpath stroke-dasharray='60' stroke-dashoffset='60' stroke-opacity='.3' d='M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='1.3s' values='60;0'/%3E%3C/path%3E%3Cpath stroke-dasharray='15' stroke-dashoffset='15' d='M12 3C16.9706 3 21 7.02944 21 12'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.3s' values='15;0'/%3E%3CanimateTransform attributeName='transform' dur='1.5s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+[data-ready] .icon-loading {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
 .icon-run {
   --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M8 19V5l11 7z'/%3E%3C/svg%3E");
   -webkit-mask: var(--un-icon) no-repeat;
@@ -316,4 +397,36 @@ a {
 
 .display-none {
   display: none !important;
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  display: none;
+  content: var(--tooltip-text, attr(data-tooltip));
+  position: absolute;
+  top: -0.5em;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 0.5em 1em;
+  background-color: var(--c-bg-dark);
+  color: var(--c-text);
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+[data-tooltip]:hover::after {
+  display: block;
+  opacity: 1;
+}
+
+[data-tooltip][data-tooltip-left]::after {
+  left: 0%;
+  transform: translate(0%, -100%);
 }

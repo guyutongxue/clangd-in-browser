@@ -75,7 +75,7 @@ cp -r build/lib/clang/$LLVM_VER_MAJOR/include/* $ROOT_DIR/wasi-sysroot/include/
 ## Build clangd (2nd time, for the real thing)
 emcmake cmake -G Ninja -S llvm -B build \
     -DCMAKE_CXX_FLAGS="-pthread -Dwait4=__syscall_wait4" \
-    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s ALLOW_MEMORY_GROWTH -s MAXIMUM_MEMORY=4GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --preload-file=$ROOT_DIR/wasi-sysroot/include@/usr/include" \
+    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s ALLOW_MEMORY_GROWTH -s MAXIMUM_MEMORY=4GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --embed-file=$ROOT_DIR/wasi-sysroot/include@/usr/include" \
     -DCMAKE_BUILD_TYPE=MinSizeRel \
     -DLLVM_TARGET_ARCH=wasm32-emscripten \
     -DLLVM_DEFAULT_TARGET_TRIPLE=wasm32-wasi \

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,28 +15,45 @@
         <div id="buildPanelResize"></div>
         <div id="buildPanelBody">
           <div id="buildPanelHeader">
-            <button class="success" id="run"><i class="icon icon-run"></i>Run code</button>
+            <button class="success" id="run">
+              <i class="icon icon-run"></i>Run code
+            </button>
             <div class="button-group" id="buildPanelTab">
               <button>Input</button>
               <button active>Output</button>
               <button>Compiler Diagnostics</button>
             </div>
             <div class="spacer"></div>
-            <button class="danger" id="closeBuildPanel"><i class="icon icon-close"></i></button>
+            <button class="danger" id="closeBuildPanel">
+              <i class="icon icon-close"></i>
+            </button>
           </div>
-          <textarea class="io display-none" id="buildPanelInput" placeholder="Type input here..."></textarea>
+          <textarea
+            class="io display-none"
+            id="buildPanelInput"
+            placeholder="Type input here..."
+          ></textarea>
           <pre class="io" id="buildPanelOutput"></pre>
         </div>
       </div>
       <div id="footer">
-        <div>
-          <div id="status"></div>
-          <div id="progress"></div>
+        <div id="status" data-tooltip data-tooltip-left>
+          <i class="icon icon-loading"></i>
+          <div id="progress">
+            <div class="progress-bar">
+              <!-- <div class="progress-value"></div> -->
+            </div>
+          </div>
         </div>
         <div>
-          <button id="showBuildPanel"><i class="icon icon-run"></i></button>
-          <button id="toggleTheme"><i class="icon icon-toggle-theme"></i></button>
-        <span> <a href="https://guyutongxue.site" target="_blank">Guyutongxue</a> &copy; 2024</span>
+          <button id="showBuildPanel" data-tooltip="Run code"><i class="icon icon-run"></i></button>
+          <button id="toggleTheme" data-tooltip="Toggle theme">
+            <i class="icon icon-toggle-theme"></i>
+          </button>
+          <span>
+            <a href="https://guyutongxue.site" target="_blank">Guyutongxue</a>
+            &copy; 2024</span
+          >
         </div>
       </div>
     </div>
