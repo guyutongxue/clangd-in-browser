@@ -1,8 +1,9 @@
-import { editorValueGetter } from "./config";
+import { getEditorValue } from "./config";
 import { runCode } from "./runner";
 
 const status = document.querySelector<HTMLElement>("#status")!;
-const toggleThemeBtn = document.querySelector<HTMLButtonElement>("#toggleTheme")!;
+const toggleThemeBtn =
+  document.querySelector<HTMLButtonElement>("#toggleTheme")!;
 const buildPanel = document.querySelector<HTMLElement>("#buildPanel")!;
 const showBuildPanel = document.querySelector<HTMLElement>("#showBuildPanel")!;
 const resizeHandle = document.querySelector<HTMLElement>("#buildPanelResize")!;
@@ -16,7 +17,7 @@ const inputEl =
 const outputEl = document.querySelector<HTMLPreElement>("#buildPanelOutput")!;
 const closeBtn = document.querySelector<HTMLButtonElement>("#closeBuildPanel")!;
 
-function toggleBuildPanel() {
+export function toggleBuildPanel() {
   buildPanel.classList.toggle("display-none");
   showBuildPanel.classList.toggle("display-none");
 }
@@ -88,7 +89,15 @@ let input = "";
 let output = "";
 let diagnostics = "";
 
-async function compileAndRun() {
+export function setInput(value: string) {
+  input = value;
+  inputEl.value = value;
+}
+
+export async function compileAndRun() {
+  if (buildPanel.classList.contains("display-none")) {
+    toggleBuildPanel();
+  }
   const inner = [...runBtn.childNodes];
   runBtn.setAttribute("disabled", "true");
   runBtn.innerHTML = "Compiling...";
@@ -98,7 +107,7 @@ async function compileAndRun() {
       stderr,
       didExecute;
     ({ stdout, stderr, diagnostics, didExecute } = await runCode(
-      editorValueGetter.get(),
+      getEditorValue(),
       { stdin }
     ));
     const outputContainer = document.createElement("pre");
@@ -126,19 +135,26 @@ function toggleTheme() {
 }
 toggleThemeBtn.addEventListener("click", toggleTheme);
 
-export function setClangdStatus(status: "ready" | "indeterminate"): void;
+export function setClangdStatus(status: "ready" | "indeterminate" | "disabled"): void;
 export function setClangdStatus(value: number, max: number): void;
 export function setClangdStatus(strOrVal: string | number, max?: number) {
   if (typeof strOrVal === "number") {
     status.removeAttribute("data-ready");
+    status.removeAttribute("data-disabled");
     status.removeAttribute("data-indeterminate");
     status.style.setProperty("--progress-value", `${strOrVal}`);
     status.style.setProperty("--progress-max", `${max}`);
   } else if (strOrVal === "ready") {
     status.setAttribute("data-ready", "");
+    status.removeAttribute("data-disabled");
+    status.removeAttribute("data-indeterminate");
+  } else if (strOrVal === "disabled") {
+    status.removeAttribute("data-ready");
+    status.setAttribute("data-disabled", "");
     status.removeAttribute("data-indeterminate");
   } else if (strOrVal === "indeterminate") {
     status.removeAttribute("data-ready");
+    status.removeAttribute("data-disabled");
     status.setAttribute("data-indeterminate", "");
   }
 }

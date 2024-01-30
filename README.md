@@ -14,7 +14,7 @@ I've publish a [GitHub Page](https://clangd.guyutongxue.site/) for demonstrating
 
 Notice that clangd is a multi-thread program, so we need `SharedArrayBuffer` -- and more over, a strict context called `crossOriginIsolated`. GitHub Pages do not send COOP/COEP headers for us to enabling that context, so I served this site through CloudFlare with a custom rule adding those headers. If you want to deploy this project by yourself, make sure correct COOP/COEP header is set on the server side, or you can use  [`coi-serviceworker`](https://github.com/gzuidhof/coi-serviceworker).
 
-<!--By the way, you should be able to embed this page into your website as a `<iframe>`. I've enabled [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer) on this page for your convenience.-->
+You can pass URL search parameters to control the initial state of this page ([see here](./docs/params.md)), or embed it in your website ([see here](./docs/embed.md), **your website needs to be cross-origin-isolated too**)
 
 ## Acknowledgement
 

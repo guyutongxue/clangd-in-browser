@@ -8,7 +8,12 @@ import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import { Uri } from "vscode";
 
 import { LIGHT_THEME, DARK_THEME, createTheme } from "./theme";
-import { FILE_PATH, LANGUAGE_ID, WORKSPACE_PATH, editorValueGetter } from "./config";
+import {
+  FILE_PATH,
+  LANGUAGE_ID,
+  WORKSPACE_PATH,
+  setEditorValueSource,
+} from "./config";
 
 const self = globalThis as any;
 self.MonacoEnvironment = { getWorker: () => new EditorWorker() };
@@ -45,7 +50,10 @@ export async function createEditor(element: HTMLElement, code: string) {
       enabled: "offUnlessPressed",
     },
   });
-  editorValueGetter.get = () => editorInstance.getValue();
+  setEditorValueSource(
+    () => editorInstance.getValue(),
+    (value) => editorInstance.setValue(value)
+  );
   return editorInstance;
 }
 
@@ -53,5 +61,6 @@ function toggleEditorTheme() {
   const isDark = document.body.classList.contains("dark");
   editor.setTheme(isDark ? "dark" : "light");
 }
-document.querySelector("#toggleTheme")!.addEventListener("click", toggleEditorTheme);
-
+document
+  .querySelector("#toggleTheme")!
+  .addEventListener("click", toggleEditorTheme);

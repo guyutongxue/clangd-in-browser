@@ -9,6 +9,19 @@ export const COMPILE_ARGS = [
   "-Wall",
 ];
 
-export const editorValueGetter = {
-  get: () => ""
+const editorValue = {
+  get: () => "",
+  set: (value: string) => {},
 };
+
+export function setEditorValueSource(getter: () => string, setter: (value: string) => void) {
+  editorValue.get = getter;
+  editorValue.set = setter;
+}
+
+export function getEditorValue() {
+  return editorValue.get();
+}
+export function setEditorValue(value: string) {
+  editorValue.set(value);
+}

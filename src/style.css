@@ -116,6 +116,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 }
 
 #buildPanelResize {
@@ -221,6 +222,7 @@ body {
     padding: 0.5em 1em;
     font-family: var(--font-monospace);
     overflow: auto;
+    user-select: text;
   }
 }
 
@@ -274,6 +276,9 @@ body {
   &[data-ready] {
     --tooltip-text: "Clangd is ready";
   }
+  &[data-disabled] {
+    --tooltip-text: "Clangd is disabled";
+  }
 }
 
 #progress {
@@ -282,6 +287,9 @@ body {
   margin: auto;
 }
 [data-ready] #progress {
+  display: none;
+}
+[data-disabled] #progress {
   display: none;
 }
 
@@ -343,6 +351,17 @@ a {
 }
 [data-ready] .icon-loading {
   --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+[data-disabled] .icon-loading {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M1 21L12 2l11 19zm3.45-2h15.1L12 6zM12 18q.425 0 .713-.288T13 17q0-.425-.288-.712T12 16q-.425 0-.712.288T11 17q0 .425.288.713T12 18m-1-3h2v-5h-2zm1-2.5'/%3E%3C/svg%3E");
   -webkit-mask: var(--un-icon) no-repeat;
   mask: var(--un-icon) no-repeat;
   -webkit-mask-size: 100% 100%;

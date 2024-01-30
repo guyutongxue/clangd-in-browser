@@ -61,6 +61,7 @@ export async function createClient(serverWorker: Worker) {
       } finally {
         retry++;
         if (retry > 5 && !succeeded) {
+          setClangdStatus("disabled");
           console.error("Failed to start clangd after 5 retries");
           return;
         }
