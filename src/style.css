@@ -223,6 +223,11 @@ body {
     font-family: var(--font-monospace);
     overflow: auto;
     user-select: text;
+
+    .hint {
+      user-select: none;
+      color:  var(--c-text-light);
+    }
   }
 
   hr {

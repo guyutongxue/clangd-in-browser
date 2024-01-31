@@ -56,12 +56,14 @@ function showInput() {
   inputEl.classList.remove("display-none");
   outputEl.classList.add("display-none");
 }
-const EMPTY_HINT_HTML = `<span style="user-select: none; color: var(--c-text-light)">No output.</span>`;
+const EMPTY_HINT_HTML = `<span class="hint">No output.</span>`;
+let hasRun = false;
+const OUTPUT_HINT_HTML = `<span class="hint">Click "Run code" button to compile and run.</span>`;
 const RESULT_COPY_HTML = `
-<hr><span style="user-select: none; color: var(--c-text-light)">Compilation provided by <a href="https://godbolt.org" target="_blank">Compiler Explorer</a></span>`;
+<hr><span class="hint">Compilation provided by <a href="https://godbolt.org" target="_blank">Compiler Explorer</a></span>`;
 function showOutput(text: string) {
   if (text === "") {
-    text = EMPTY_HINT_HTML;
+    text = hasRun ? EMPTY_HINT_HTML : OUTPUT_HINT_HTML;
   }
   outputEl.innerHTML = text + RESULT_COPY_HTML;
   outputEl.classList.remove("display-none");
@@ -112,6 +114,7 @@ export async function compileAndRun() {
       getEditorValue(),
       { stdin }
     ));
+    hasRun = true;
     const outputContainer = document.createElement("pre");
     const stdoutEl = document.createElement("span");
     stdoutEl.innerText = stdout;
