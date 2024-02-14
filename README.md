@@ -18,6 +18,6 @@ You can pass URL search parameters to control the initial state of this page ([s
 
 ## Acknowledgement
 
-- [soedirgo/llvm-wasm](https://github.com/soedirgo/llvm-wasm) provides a very detailed guide on how to build LLVM to wasm. Better then famous works like [binji/wasm-clang](https://github.com/binji/wasm-clang) or [tbfleming/cib](https://github.com/tbfleming/cib) (but also thank you guys :P);
+- [soedirgo/llvm-wasm](https://github.com/soedirgo/llvm-wasm) provides a very detailed guide on how to build LLVM to wasm. Better than famous works like [binji/wasm-clang](https://github.com/binji/wasm-clang) or [tbfleming/cib](https://github.com/tbfleming/cib) (but also thank you guys :P);
 - [nokotan/vscode-clangd](https://github.com/nokotan/vscode-clangd) patch vscode's clangd extension with WASM binary to make it work on vscode-web. Some bugs but useful; no build scripts or further documentation;
 - [ConorBobbleHat/clangd-wasm](https://github.com/ConorBobbleHat/clangd-wasm) and [ConorBobbleHat/clangd-wasm-core](https://github.com/ConorBobbleHat/clangd-wasm-core); build scripts provided but lack examples on how to use them.
