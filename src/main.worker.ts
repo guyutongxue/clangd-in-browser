@@ -52,7 +52,7 @@ const stdin = (): number | null => {
       console.error("Try to fetch exhausted stdin");
       return null;
     }
-    const nextChunk = /** @type {string} */ stdinChunks.shift();
+    const nextChunk = stdinChunks.shift()!;
     currentStdinChunk.push(...textEncoder.encode(nextChunk), null);
   }
   return currentStdinChunk.shift()!;
