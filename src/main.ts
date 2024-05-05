@@ -4,8 +4,16 @@ import { ExtendedSearchParams } from "./search_params";
 
 if (!globalThis.crossOriginIsolated) {
   document.body.innerHTML =
-    "This page requires cross-origin isolation to work properly. You may forget to set server's COOP/COEP headers. If you are using this page as an <iframe>, you should also pass <code>allow=\"cross-origin\"</code> to the <code>iframe</code> element.";
+    'This page requires cross-origin isolation to work properly. You may forget to set server\'s COOP/COEP headers. If you are using this page as an <iframe>, you should also pass <code>allow="cross-origin"</code> to the <code>iframe</code> element.';
   throw new Error("Cross-origin isolation is not enabled");
+}
+
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js", {
+      scope: "/",
+    });
+  });
 }
 
 const params = new ExtendedSearchParams(window.location.search);
