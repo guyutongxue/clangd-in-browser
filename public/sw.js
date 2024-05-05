@@ -56,8 +56,12 @@ const cacheFirst = async (request) => {
 };
 
 self_.addEventListener("activate", (event) => {
-  event.waitUntil(self_.registration?.navigationPreload.enable());
-  event.waitUntil(deleteOldCaches());
+  event.waitUntil(
+    (async () => {
+      await self_.registration?.navigationPreload.enable();
+      await deleteOldCaches();
+    })()
+  );
 });
 
 self_.addEventListener("install", (event) => {
