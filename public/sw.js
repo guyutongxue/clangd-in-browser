@@ -58,7 +58,7 @@ const cacheFirst = async (request) => {
 self_.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
-      await self_.registration?.navigationPreload.enable();
+      // await self_.registration?.navigationPreload.enable();
       await deleteOldCaches();
     })()
   );
