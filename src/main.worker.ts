@@ -106,9 +106,11 @@ console.log(clangd);
 
 const flags = [
   ...COMPILE_ARGS,
-  // "--target=wasm32-wasi",
+  "--target=wasm32-wasi",
   "-isystem/usr/include/c++/v1",
-  "-isystem/usr/include/",
+  "-isystem/usr/include/wasm32-wasi/c++/v1",
+  "-isystem/usr/include",
+  "-isystem/usr/include/wasm32-wasi",
 ];
 
 clangd.FS.writeFile(FILE_PATH, "");

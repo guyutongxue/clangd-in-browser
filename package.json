@@ -29,5 +29,5 @@
     "monaco-editor": "$monaco-editor",
     "vscode": "$vscode"
   },
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.1.0"
 }
