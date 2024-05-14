@@ -2,7 +2,7 @@ import { COMPILE_ARGS } from "./config";
 import { AnsiUp } from "ansi_up";
 
 const COMPILER_EXPLORER_API_BASE = "https://godbolt.org/api";
-const COMPILER_ID = "g132";
+const COMPILER_ID = "g141";
 
 export interface ExecuteOptions {
   args: string[];

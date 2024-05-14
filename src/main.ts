@@ -39,11 +39,10 @@ if (params.isTrue("embed")) {
 
 const code =
   params.get("code") ??
-  `#include <iostream>
-#include <format>
+  `#include <print>
 
 int main() {
-    std::cout << std::format("Hello, {}!\\n", "world");
+    std::println("Hello, {}!", "world");
 }
 `;
 
