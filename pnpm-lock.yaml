@@ -33,14 +33,11 @@ importers:
         specifier: npm:@codingame/monaco-vscode-editor-api@~5.1.1
         version: '@codingame/monaco-vscode-editor-api@5.1.1'
       monaco-editor-wrapper:
-        specifier: ~5.1.0
-        version: 5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))
+        specifier: ~5.1.1
+        version: 5.1.1(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))
       monaco-languageclient:
         specifier: ~8.4.0
         version: 8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)
-      monaco-languageclient-examples:
-        specifier: ~8.4.1
-        version: 8.4.1
       vscode:
         specifier: npm:@codingame/monaco-vscode-api@~5.1.1
         version: '@codingame/monaco-vscode-api@5.1.1'
@@ -65,21 +62,6 @@ importers:
         version: 5.2.11(@types/node@20.11.7)
 
 packages:
-
-  '@chevrotain/cst-dts-gen@11.0.3':
-    resolution: {integrity: sha512-BvIKpRLeS/8UbfxXxgC33xOumsacaeCKAjAeLyOn7Pcp95HiRbrpl14S+9vaZLolnbssPIUuiUd8IvgkRyt6NQ==}
-
-  '@chevrotain/gast@11.0.3':
-    resolution: {integrity: sha512-+qNfcoNk70PyS/uxmj3li5NiECO+2YKZZQMbmjTqRI3Qchu8Hig/Q9vgkHpI3alNjr7M+a2St5pw5w5F6NL5/Q==}
-
-  '@chevrotain/regexp-to-ast@11.0.3':
-    resolution: {integrity: sha512-1fMHaBZxLFvWI067AVbGJav1eRY7N8DDvYCTwGBiE/ytKBgP8azTdgyrKyWZ9Mfh09eHWb5PgTSO8wi7U824RA==}
-
-  '@chevrotain/types@11.0.3':
-    resolution: {integrity: sha512-gsiM3G8b58kZC2HaWR50gu6Y1440cHiJ+i3JUvcp/35JchYejb2+5MVeJK0iKThYpAa/P2PYFV4hoi44HD+aHQ==}
-
-  '@chevrotain/utils@11.0.3':
-    resolution: {integrity: sha512-YslZMgtJUyuMbZ+aKvfF3x1f5liK4mWNxghFRv7jqRR9C3R3fAOGTTKvxXDa2Y1s9zSbcpuO0cAxDYsc9SrXoQ==}
 
   '@codingame/esbuild-import-meta-url-plugin@1.0.2':
     resolution: {integrity: sha512-b1PjH6DVdTQd0WLO2R+b9oMlO7REyiAVbcx8weN1ZYiBSROuAy9MJ/j2NI4sxmFv9GK0wM9HRrBg6J2CBZ1xzQ==}
@@ -111,20 +93,8 @@ packages:
   '@codingame/monaco-vscode-files-service-override@5.1.1':
     resolution: {integrity: sha512-xrhZzymmNIp9KIZBWHmUkkYqViocQw2TGnKBuYpZXVKP7ixPpNOK+bwT0X3RQka09N3DIY2UbQ6DnscId8QAWg==}
 
-  '@codingame/monaco-vscode-groovy-default-extension@5.1.1':
-    resolution: {integrity: sha512-FWsb9dEToYJJYSn37Bc1v8XA2WZBcTiclnnYIcqgqA0y2UbQ8P1BMzh/utxrQKqEwG+mMxqjVqwyFtKbyucaKA==}
-
   '@codingame/monaco-vscode-host-service-override@5.1.1':
     resolution: {integrity: sha512-XiSjh5ioVaCvzcKtaiAuxTaU27WfcAEX/QURSoXzP91Yr5LvK5wi1+ciCGInfSfNnxXWYsnulhs5jPK7TfIP4w==}
-
-  '@codingame/monaco-vscode-javascript-default-extension@5.1.1':
-    resolution: {integrity: sha512-cEKYYKGnsixavvxitNz46a7Awpkeah9MyHq1Ky2/SlaxZbdU5VPfhYE35CMPzCt/WfuanTUxFqw5KdLTlzOoCQ==}
-
-  '@codingame/monaco-vscode-json-default-extension@5.1.1':
-    resolution: {integrity: sha512-RrZM8pNa4AWaBgX7kX34dUQPSY2G7Y4NJmL+HLNU3ucLtJtN6biUARJnFbuYMYykhQ7KF3C5VTRACRG/dMrq9g==}
-
-  '@codingame/monaco-vscode-keybindings-service-override@5.1.1':
-    resolution: {integrity: sha512-gmUR6ODI2Oukvk661rO1svoYjPzAZlZBSJ5Z7rLY0mqhAYCd8pxyiKCeEUqZzkD8NKpXETlkMggA5b1Z3+xxsg==}
 
   '@codingame/monaco-vscode-language-pack-cs@5.1.1':
     resolution: {integrity: sha512-pcmtqwCRdTon1zIxlDV+S5RK6OFzuHWM95v6y7yhGn8RUIsB8EqyPMj2Qn/YjMmTZCa8Mt1CH595t0wpekg2/g==}
@@ -174,9 +144,6 @@ packages:
   '@codingame/monaco-vscode-layout-service-override@5.1.1':
     resolution: {integrity: sha512-nhQOqHZo6r8tmF9TZ6zWU94ZcFPhOxDfVgBwvdk2cwoeD0SkR0/XlnvN4H313sb2wpBtP+m2ny9tNMz0QVq1Iw==}
 
-  '@codingame/monaco-vscode-lifecycle-service-override@5.1.1':
-    resolution: {integrity: sha512-YsWVWopbEyGzoZH++Yurf0nLQ3hyurgD4c/GY8pJgZyfYkOEgpLPknrp/+Zg+f7inJgyHisDkzbvb/DgxvpqJA==}
-
   '@codingame/monaco-vscode-localization-service-override@5.1.1':
     resolution: {integrity: sha512-3lBQU88F0QldQIkhLIIr+ndgxhwXwDmqPmVQ44OkY6BIhSag1UoXaSSAob73h7nQiFbVyAIKSXq0NB3BlHwnDA==}
 
@@ -186,20 +153,8 @@ packages:
   '@codingame/monaco-vscode-monarch-service-override@5.1.1':
     resolution: {integrity: sha512-nnGMjjhNV3i/WYycTS1RBCVgf0SaE7TXEFVLcRWijV34DpTBAOXf37xRRuI+mnVbkWcih+mMiPb9Yyl1Ynd3/w==}
 
-  '@codingame/monaco-vscode-python-default-extension@5.1.1':
-    resolution: {integrity: sha512-OThIQILoCoR9igpH/ANUqRwxOk14RwI1m3ZarghNcA7+kyUH1x9o0j4JwbqtmXqbMnnafDujMybbWlP73YcRCQ==}
-
   '@codingame/monaco-vscode-quickaccess-service-override@5.1.1':
     resolution: {integrity: sha512-lcxqW6F/BHnjM63tvfFtYkiRFIVhvTWnp0sSs49SCHtutiRQOqEMpyvMrzVpWXUx6KD3BdRcRxjSPxdrQxRDMA==}
-
-  '@codingame/monaco-vscode-standalone-json-language-features@5.1.1':
-    resolution: {integrity: sha512-X+D+3RZSxvQtZzrWvSN5QHevPSXkSqF/mzoXUh04zz5M7u0ClwfaaBly8NElKu4dZSN2MwK5sBb+v1mdG0CULA==}
-
-  '@codingame/monaco-vscode-standalone-languages@5.1.1':
-    resolution: {integrity: sha512-XKPD/uyojuoEQKUOeguia6Gv4STxaYxxQjKgkMfIrCbvDh9fMQNbub3hwCxKNeF91tUPbm84c5Al1GgJPPaV0A==}
-
-  '@codingame/monaco-vscode-standalone-typescript-language-features@5.1.1':
-    resolution: {integrity: sha512-Zfi7REOPkriJwDx7pC9er/ic5GipFzn4LhY5SsnSDa/6iDobQRzNhhACXExURyekUKuyD455GwXoQN8aJAsIyg==}
 
   '@codingame/monaco-vscode-textmate-service-override@5.1.1':
     resolution: {integrity: sha512-RB0sSn3Tzn8M6y7Fk1kEqe7aVpwtwxhDelgAKG4dMVK7KSLhngXAfDQNzTxIHKMEprJjVD0aTz8LIjnYL3vcVA==}
@@ -209,12 +164,6 @@ packages:
 
   '@codingame/monaco-vscode-theme-service-override@5.1.1':
     resolution: {integrity: sha512-xirzDwOaKSe4ZbE8H7OTATHY2x25Y8SJYXAnyU6Pl2205uzoeQYui78FQ2/eubSW4HSbiNIIKIKwcc1PMmMbtQ==}
-
-  '@codingame/monaco-vscode-typescript-basics-default-extension@5.1.1':
-    resolution: {integrity: sha512-BZ7CQiX8mQ5SSqxDb663vyzIWS2ywhMPa/t2mF7GAj4THH2QAPd3q116z5APdU1K9r86w1eKIa2ocQ7DG9KUpA==}
-
-  '@codingame/monaco-vscode-typescript-language-features-default-extension@5.1.1':
-    resolution: {integrity: sha512-dapC/0SD6QydXIxlnFxJLQWhYXDk7dcOUFXELhOsm6jpXqpctG/fUwNZ5lRijR4IMqQFP8DQxXhfwJ+fyMj37A==}
 
   '@esbuild/aix-ppc64@0.20.2':
     resolution: {integrity: sha512-D+EBOJHXdNZcLJRBkhENNG8Wji2kgc9AZ9KiPr1JuZjsNtyHzrsfLRrY0tk2H2aoFu6RANO1y1iPPUCDYWkb5g==}
@@ -434,15 +383,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@typefox/monaco-editor-react@4.1.0':
-    resolution: {integrity: sha512-LOHQ/HanJSnZinggYttUIjaJjZElBaBkIe/W12oi1U3reptlHliCc9HPwpgdCVFaxpI0JehwnpeG/phl7hs/AA==}
-    peerDependencies:
-      monaco-editor: npm:@codingame/monaco-vscode-editor-api@~5.1.1
-      monaco-editor-wrapper: ~5.1.0
-      monaco-languageclient: ~8.4.0
-      react: ~18.3.1
-      vscode: npm:@codingame/monaco-vscode-api@~5.1.1
-
   '@types/emscripten@1.39.10':
     resolution: {integrity: sha512-TB/6hBkYQJxsZHSqyeuO1Jt0AB/bW6G7rHt9g7lML7SOF6lbgcHvw/Lr+69iqN0qxgXLhWKScAon73JNnptuDw==}
 
@@ -458,160 +398,24 @@ packages:
   '@vscode/iconv-lite-umd@0.7.0':
     resolution: {integrity: sha512-bRRFxLfg5dtAyl5XyiVWz/ZBPahpOpPrNYnnHpOpUZvam4tKH35wdhP4Kj6PbM0+KdliOsPzbGWpkxcdpNB/sg==}
 
-  '@vscode/l10n@0.0.18':
-    resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
-
-  accepts@1.3.8:
-    resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
-    engines: {node: '>= 0.6'}
-
   ansi_up@6.0.2:
     resolution: {integrity: sha512-3G3vKvl1ilEp7J1u6BmULpMA0xVoW/f4Ekqhl8RTrJrhEBkonKn5k3bUc5Xt+qDayA6iDX0jyUh3AbZjB/l0tw==}
-
-  array-flatten@1.1.1:
-    resolution: {integrity: sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  body-parser@1.20.2:
-    resolution: {integrity: sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==}
-    engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
-
   brace-expansion@2.0.1:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
-
-  bytes@3.1.2:
-    resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
-    engines: {node: '>= 0.8'}
-
-  call-bind@1.0.7:
-    resolution: {integrity: sha512-GHTSNSYICQ7scH7sZ+M2rFopRoLh8t2bLSW6BbgrtLsahOIB5iyAVJf9GjWK3cYTDaMj4XdBpM1cA6pIS0Kv2w==}
-    engines: {node: '>= 0.4'}
-
-  chevrotain-allstar@0.3.1:
-    resolution: {integrity: sha512-b7g+y9A0v4mxCW1qUhf3BSVPg+/NvGErk/dOkrDaHA0nQIQGAtrOjlX//9OQtRlSCy+x9rfB5N8yC71lH1nvMw==}
-    peerDependencies:
-      chevrotain: ^11.0.0
-
-  chevrotain@11.0.3:
-    resolution: {integrity: sha512-ci2iJH6LeIkvP9eJW6gpueU8cnZhv85ELY8w8WiFtNjMHA5ad6pQLaJo9mEly/9qUyCpvqX8/POVUTf18/HFdw==}
-
-  content-disposition@0.5.4:
-    resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
-    engines: {node: '>= 0.6'}
-
-  content-type@1.0.5:
-    resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
-    engines: {node: '>= 0.6'}
-
-  cookie-signature@1.0.6:
-    resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
-
-  cookie@0.6.0:
-    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
-    engines: {node: '>= 0.6'}
-
-  debug@2.6.9:
-    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-
-  define-data-property@1.1.4:
-    resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
-    engines: {node: '>= 0.4'}
-
-  depd@2.0.0:
-    resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
-    engines: {node: '>= 0.8'}
-
-  destroy@1.2.0:
-    resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
-    engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
-
-  ee-first@1.1.1:
-    resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
-
-  encodeurl@1.0.2:
-    resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
-    engines: {node: '>= 0.8'}
-
-  es-define-property@1.0.0:
-    resolution: {integrity: sha512-jxayLKShrEqqzJ0eumQbVhTYQM27CfT1T35+gCgDFoL82JLsXqTJ76zv6A0YLOgEnLUMvLzsDsGIrl8NFpT2gQ==}
-    engines: {node: '>= 0.4'}
-
-  es-errors@1.3.0:
-    resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
-    engines: {node: '>= 0.4'}
 
   esbuild@0.20.2:
     resolution: {integrity: sha512-WdOOppmUNU+IbZ0PaDiTst80zjnrOkyJNHoKupIcVyU8Lvla3Ugx94VzkQ32Ijqd7UhHJy75gNWDMUekcrSJ6g==}
     engines: {node: '>=12'}
     hasBin: true
 
-  escape-html@1.0.3:
-    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
-
-  etag@1.8.1:
-    resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
-    engines: {node: '>= 0.6'}
-
-  express@4.19.2:
-    resolution: {integrity: sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q==}
-    engines: {node: '>= 0.10.0'}
-
-  finalhandler@1.2.0:
-    resolution: {integrity: sha512-5uXcUVftlQMFnWC9qu/svkWv3GTd2PfUhK/3PLkYNAe7FbqJMt3515HaxE6eRL74GdsriiwujiawdaB1BpEISg==}
-    engines: {node: '>= 0.8'}
-
-  forwarded@0.2.0:
-    resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
-    engines: {node: '>= 0.6'}
-
-  fresh@0.5.2:
-    resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
-    engines: {node: '>= 0.6'}
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
-
-  function-bind@1.1.2:
-    resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
-
-  get-intrinsic@1.2.4:
-    resolution: {integrity: sha512-5uYhsJH8VJBTv7oslg4BznJYhDoRI6waYCxMmCdnTrcCrHA/fCFKoTFz2JKKE0HdDFUF7/oQuhzumXJK7paBRQ==}
-    engines: {node: '>= 0.4'}
-
-  gopd@1.0.1:
-    resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
-
-  has-property-descriptors@1.0.2:
-    resolution: {integrity: sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==}
-
-  has-proto@1.0.3:
-    resolution: {integrity: sha512-SJ1amZAJUiZS+PhsVLf5tGydlaVB8EdFpaSO4gmiUKUOxk8qzn5AIy4ZeJUmh22znIdk/uMAUT2pl3FxzVUH+Q==}
-    engines: {node: '>= 0.4'}
-
-  has-symbols@1.0.3:
-    resolution: {integrity: sha512-l3LCuF6MgDNwTDKkdYGEihYjt5pRPbEg46rtlmnSPlUbgmB8LOIrKJbYYFBSbnPaJexMKtiPO8hmeRjRz2Td+A==}
-    engines: {node: '>= 0.4'}
-
-  hasown@2.0.2:
-    resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
-    engines: {node: '>= 0.4'}
-
-  http-errors@2.0.0:
-    resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
-    engines: {node: '>= 0.8'}
-
-  iconv-lite@0.4.24:
-    resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
-    engines: {node: '>=0.10.0'}
 
   iframe-resizer@4.3.9:
     resolution: {integrity: sha512-MCt+V/THB4a9OcAdrWo5NsI2CRpeMM4ijhTfiLtsdgDJXWYXf62Ve8yO8rKGmYNs991zty/EolYOxActlkfU+A==}
@@ -620,75 +424,24 @@ packages:
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
 
-  inherits@2.0.4:
-    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
-
-  ipaddr.js@1.9.1:
-    resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}
-    engines: {node: '>= 0.10'}
-
-  js-tokens@4.0.0:
-    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-
   jschardet@3.0.0:
     resolution: {integrity: sha512-lJH6tJ77V8Nzd5QWRkFYCLc13a3vADkh3r/Fi8HupZGWk2OVVDfnZP8V/VgQgZ+lzW0kG2UGb5hFgt3V3ndotQ==}
     engines: {node: '>=0.1.90'}
-
-  jsonc-parser@3.2.1:
-    resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
-
-  langium@3.0.0:
-    resolution: {integrity: sha512-+Ez9EoiByeoTu/2BXmEaZ06iPNXM6thWJp02KfBO/raSMyCJ4jw7AkWWa+zBCTm0+Tw1Fj9FOxdqSskyN5nAwg==}
-    engines: {node: '>=16.0.0'}
-
-  lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-
-  loose-envify@1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
-    hasBin: true
 
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  media-typer@0.3.0:
-    resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
-    engines: {node: '>= 0.6'}
-
-  merge-descriptors@1.0.1:
-    resolution: {integrity: sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w==}
-
-  methods@1.1.2:
-    resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
-    engines: {node: '>= 0.6'}
-
-  mime-db@1.52.0:
-    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
-    engines: {node: '>= 0.6'}
-
-  mime-types@2.1.35:
-    resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
-    engines: {node: '>= 0.6'}
-
-  mime@1.6.0:
-    resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
-    engines: {node: '>=4'}
-    hasBin: true
-
   minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
     engines: {node: '>=10'}
 
-  monaco-editor-wrapper@5.1.0:
-    resolution: {integrity: sha512-JqnVnnsbLDtjucohGliPwI4eRkuGskYoaWFAiGQBgnpibYa12vS+010JNw94njaIre0XJSKRY8+pLoa6VxPYcw==}
+  monaco-editor-wrapper@5.1.1:
+    resolution: {integrity: sha512-4mAX/52rN0kz7ME/e9gbrcosFWR4zYMzyw2iH3BtQB0HPAPcPOVxSHcE/C8HBIQl7HVoST02FXSm5xAqqMH1ww==}
     peerDependencies:
       monaco-editor: npm:@codingame/monaco-vscode-editor-api@~5.1.1
       monaco-languageclient: ~8.4.0
       vscode: npm:@codingame/monaco-vscode-api@~5.1.1
-
-  monaco-languageclient-examples@8.4.1:
-    resolution: {integrity: sha512-2S9x5F2/DLs8tetzXRhHXcVo/aq0M6WinunVSSkkqnQQgK45FRVr/s+uQX+j9fz1rpyBEAt/R2z861Cft0fSDg==}
 
   monaco-languageclient@8.4.0:
     resolution: {integrity: sha512-G2mhKLxhxrwGGNhFktqbFFPp/+2PuY+EY5gU3kIOC9RLBYauEh78TQqX6PwyLAJni9gyiiolmg2KVFLR0i3uKA==}
@@ -697,34 +450,10 @@ packages:
       monaco-editor: npm:@codingame/monaco-vscode-editor-api@~5.1.1
       vscode: npm:@codingame/monaco-vscode-api@~5.1.1
 
-  ms@2.0.0:
-    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
-
-  ms@2.1.3:
-    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
-
   nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  negotiator@0.6.3:
-    resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
-    engines: {node: '>= 0.6'}
-
-  object-inspect@1.13.1:
-    resolution: {integrity: sha512-5qoj1RUiKOMsCCNLV1CBiPYE10sziTsnmNxkAI/rZhiD63CF7IqdFGC/XzjWjpSgLf0LxXX3bDFIh0E18f6UhQ==}
-
-  on-finished@2.4.1:
-    resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
-    engines: {node: '>= 0.8'}
-
-  parseurl@1.3.3:
-    resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
-    engines: {node: '>= 0.8'}
-
-  path-to-regexp@0.1.7:
-    resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
 
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
@@ -733,92 +462,19 @@ packages:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  proxy-addr@2.0.7:
-    resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
-    engines: {node: '>= 0.10'}
-
-  pyright@1.1.363:
-    resolution: {integrity: sha512-ktR1N9esTerTkyiHtNa/eDdhSp2PwU/+TbyqplQQdGNvBPCDqL+qDCTz3W6xFfJ0b7xiDewPM+oedBvmbiZJPA==}
-    engines: {node: '>=14.0.0'}
-    hasBin: true
-
-  qs@6.11.0:
-    resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
-    engines: {node: '>=0.6'}
-
-  range-parser@1.2.1:
-    resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
-    engines: {node: '>= 0.6'}
-
-  raw-body@2.5.2:
-    resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
-    engines: {node: '>= 0.8'}
-
-  react-dom@18.3.1:
-    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
-    peerDependencies:
-      react: ^18.3.1
-
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
-
-  request-light@0.7.0:
-    resolution: {integrity: sha512-lMbBMrDoxgsyO+yB3sDcrDuX85yYt7sS8BfQd11jtbW/z5ZWgLZRcEGLsLoYw7I0WSUGQBs8CC8ScIxkTX1+6Q==}
-
   rollup@4.17.2:
     resolution: {integrity: sha512-/9ClTJPByC0U4zNLowV1tMBe8yMEAxewtR3cUNX5BoEpGH3dQEWpJLr6CLp0fPdYRF/fzVOgvDb1zXuakwF5kQ==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
-
-  safe-buffer@5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
-
-  safer-buffer@2.1.2:
-    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
-
-  scheduler@0.23.2:
-    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
   semver@7.5.4:
     resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
     engines: {node: '>=10'}
     hasBin: true
 
-  send@0.18.0:
-    resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
-    engines: {node: '>= 0.8.0'}
-
-  serve-static@1.15.0:
-    resolution: {integrity: sha512-XGuRDNjXUijsUL0vl6nSD7cwURuzEgglbOaFuZM9g3kwDXOWVTck0jLzjPzGD+TazWbboZYu52/9/XPdUgne9g==}
-    engines: {node: '>= 0.8.0'}
-
-  set-function-length@1.2.2:
-    resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
-    engines: {node: '>= 0.4'}
-
-  setprototypeof@1.2.0:
-    resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
-
-  side-channel@1.0.6:
-    resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
-    engines: {node: '>= 0.4'}
-
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
-
-  statuses@2.0.1:
-    resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
-    engines: {node: '>= 0.8'}
-
-  toidentifier@1.0.1:
-    resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
-    engines: {node: '>=0.6'}
-
-  type-is@1.6.18:
-    resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
-    engines: {node: '>= 0.6'}
 
   typescript@5.4.5:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
@@ -827,18 +483,6 @@ packages:
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-
-  unpipe@1.0.0:
-    resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
-    engines: {node: '>= 0.8'}
-
-  utils-merge@1.0.1:
-    resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
-    engines: {node: '>= 0.4.0'}
-
-  vary@1.1.2:
-    resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
-    engines: {node: '>= 0.8'}
 
   vite@5.2.11:
     resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
@@ -868,9 +512,6 @@ packages:
       terser:
         optional: true
 
-  vscode-json-languageservice@5.3.11:
-    resolution: {integrity: sha512-WYS72Ymria3dn8ZbjtBbt5K71m05wY1Q6hpXV5JxUT0q75Ts0ljLmnZJAVpx8DjPgYbFD+Z8KHpWh2laKLUCtQ==}
-
   vscode-jsonrpc@8.2.0:
     resolution: {integrity: sha512-C+r0eKJUIfiDIfwJhria30+TYWPtuHJXHtI7J0YlOmKAo7ogxP20T0zxB7HZQIFhIyvoBPwWskjxrvAtfjyZfA==}
     engines: {node: '>=14.0.0'}
@@ -881,9 +522,6 @@ packages:
 
   vscode-languageserver-protocol@3.17.5:
     resolution: {integrity: sha512-mb1bvRJN8SVznADSGWM9u/b07H7Ecg0I3OgXDuLdn307rl/J3A9YD6/eYOssqhecL27hK1IPZAsaqh00i/Jljg==}
-
-  vscode-languageserver-textdocument@1.0.11:
-    resolution: {integrity: sha512-X+8T3GoiwTVlJbicx/sIAF+yuJAqz8VvwJyoMVhwEMoEKE/fkDmrqUgDMyBECcM2A2frVZIUj5HI/ErRXCfOeA==}
 
   vscode-languageserver-types@3.17.5:
     resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
@@ -898,46 +536,14 @@ packages:
   vscode-textmate@9.0.0:
     resolution: {integrity: sha512-Cl65diFGxz7gpwbav10HqiY/eVYTO1sjQpmRmV991Bj7wAoOAjGQ97PpQcXorDE2Uc4hnGWLY17xme+5t6MlSg==}
 
-  vscode-uri@3.0.8:
-    resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
-
   vscode-ws-jsonrpc@3.3.1:
     resolution: {integrity: sha512-6eBDPCzB6X32oCH4bG42IQ8xf7L200VPU5GT77fKGzlIZJCvWwFeZG7hj2kJPMKUMuuHHh0VeZIonzwAQrVq+g==}
     engines: {node: '>=16.11.0', npm: '>=8.0.0'}
-
-  ws@8.17.0:
-    resolution: {integrity: sha512-uJq6108EgZMAl20KagGkzCKfMEjxmKvZHG7Tlq0Z6nOky7YF7aq4mOx6xK8TJ/i1LeK4Qus7INktacctDgY8Ow==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
 
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
 snapshots:
-
-  '@chevrotain/cst-dts-gen@11.0.3':
-    dependencies:
-      '@chevrotain/gast': 11.0.3
-      '@chevrotain/types': 11.0.3
-      lodash-es: 4.17.21
-
-  '@chevrotain/gast@11.0.3':
-    dependencies:
-      '@chevrotain/types': 11.0.3
-      lodash-es: 4.17.21
-
-  '@chevrotain/regexp-to-ast@11.0.3': {}
-
-  '@chevrotain/types@11.0.3': {}
-
-  '@chevrotain/utils@11.0.3': {}
 
   '@codingame/esbuild-import-meta-url-plugin@1.0.2':
     dependencies:
@@ -990,25 +596,8 @@ snapshots:
     dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
 
-  '@codingame/monaco-vscode-groovy-default-extension@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
   '@codingame/monaco-vscode-host-service-override@5.1.1':
     dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-javascript-default-extension@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-json-default-extension@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-keybindings-service-override@5.1.1':
-    dependencies:
-      '@codingame/monaco-vscode-files-service-override': 5.1.1
       vscode: '@codingame/monaco-vscode-api@5.1.1'
 
   '@codingame/monaco-vscode-language-pack-cs@5.1.1':
@@ -1076,10 +665,6 @@ snapshots:
     dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
 
-  '@codingame/monaco-vscode-lifecycle-service-override@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
   '@codingame/monaco-vscode-localization-service-override@5.1.1':
     dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
@@ -1092,25 +677,9 @@ snapshots:
     dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
 
-  '@codingame/monaco-vscode-python-default-extension@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
   '@codingame/monaco-vscode-quickaccess-service-override@5.1.1':
     dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-standalone-json-language-features@5.1.1':
-    dependencies:
-      monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
-
-  '@codingame/monaco-vscode-standalone-languages@5.1.1':
-    dependencies:
-      monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
-
-  '@codingame/monaco-vscode-standalone-typescript-language-features@5.1.1':
-    dependencies:
-      monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
 
   '@codingame/monaco-vscode-textmate-service-override@5.1.1':
     dependencies:
@@ -1126,14 +695,6 @@ snapshots:
   '@codingame/monaco-vscode-theme-service-override@5.1.1':
     dependencies:
       '@codingame/monaco-vscode-files-service-override': 5.1.1
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-typescript-basics-default-extension@5.1.1':
-    dependencies:
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
-  '@codingame/monaco-vscode-typescript-language-features-default-extension@5.1.1':
-    dependencies:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
 
   '@esbuild/aix-ppc64@0.20.2':
@@ -1253,14 +814,6 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.17.2':
     optional: true
 
-  '@typefox/monaco-editor-react@4.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-editor-wrapper@5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)))(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))(react@18.3.1)':
-    dependencies:
-      monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
-      monaco-editor-wrapper: 5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))
-      monaco-languageclient: 8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)
-      react: 18.3.1
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-
   '@types/emscripten@1.39.10': {}
 
   '@types/estree@1.0.5': {}
@@ -1273,97 +826,13 @@ snapshots:
 
   '@vscode/iconv-lite-umd@0.7.0': {}
 
-  '@vscode/l10n@0.0.18': {}
-
-  accepts@1.3.8:
-    dependencies:
-      mime-types: 2.1.35
-      negotiator: 0.6.3
-
   ansi_up@6.0.2: {}
 
-  array-flatten@1.1.1: {}
-
   balanced-match@1.0.2: {}
-
-  body-parser@1.20.2:
-    dependencies:
-      bytes: 3.1.2
-      content-type: 1.0.5
-      debug: 2.6.9
-      depd: 2.0.0
-      destroy: 1.2.0
-      http-errors: 2.0.0
-      iconv-lite: 0.4.24
-      on-finished: 2.4.1
-      qs: 6.11.0
-      raw-body: 2.5.2
-      type-is: 1.6.18
-      unpipe: 1.0.0
-    transitivePeerDependencies:
-      - supports-color
 
   brace-expansion@2.0.1:
     dependencies:
       balanced-match: 1.0.2
-
-  bytes@3.1.2: {}
-
-  call-bind@1.0.7:
-    dependencies:
-      es-define-property: 1.0.0
-      es-errors: 1.3.0
-      function-bind: 1.1.2
-      get-intrinsic: 1.2.4
-      set-function-length: 1.2.2
-
-  chevrotain-allstar@0.3.1(chevrotain@11.0.3):
-    dependencies:
-      chevrotain: 11.0.3
-      lodash-es: 4.17.21
-
-  chevrotain@11.0.3:
-    dependencies:
-      '@chevrotain/cst-dts-gen': 11.0.3
-      '@chevrotain/gast': 11.0.3
-      '@chevrotain/regexp-to-ast': 11.0.3
-      '@chevrotain/types': 11.0.3
-      '@chevrotain/utils': 11.0.3
-      lodash-es: 4.17.21
-
-  content-disposition@0.5.4:
-    dependencies:
-      safe-buffer: 5.2.1
-
-  content-type@1.0.5: {}
-
-  cookie-signature@1.0.6: {}
-
-  cookie@0.6.0: {}
-
-  debug@2.6.9:
-    dependencies:
-      ms: 2.0.0
-
-  define-data-property@1.1.4:
-    dependencies:
-      es-define-property: 1.0.0
-      es-errors: 1.3.0
-      gopd: 1.0.1
-
-  depd@2.0.0: {}
-
-  destroy@1.2.0: {}
-
-  ee-first@1.1.1: {}
-
-  encodeurl@1.0.2: {}
-
-  es-define-property@1.0.0:
-    dependencies:
-      get-intrinsic: 1.2.4
-
-  es-errors@1.3.0: {}
 
   esbuild@0.20.2:
     optionalDependencies:
@@ -1391,176 +860,27 @@ snapshots:
       '@esbuild/win32-ia32': 0.20.2
       '@esbuild/win32-x64': 0.20.2
 
-  escape-html@1.0.3: {}
-
-  etag@1.8.1: {}
-
-  express@4.19.2:
-    dependencies:
-      accepts: 1.3.8
-      array-flatten: 1.1.1
-      body-parser: 1.20.2
-      content-disposition: 0.5.4
-      content-type: 1.0.5
-      cookie: 0.6.0
-      cookie-signature: 1.0.6
-      debug: 2.6.9
-      depd: 2.0.0
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      etag: 1.8.1
-      finalhandler: 1.2.0
-      fresh: 0.5.2
-      http-errors: 2.0.0
-      merge-descriptors: 1.0.1
-      methods: 1.1.2
-      on-finished: 2.4.1
-      parseurl: 1.3.3
-      path-to-regexp: 0.1.7
-      proxy-addr: 2.0.7
-      qs: 6.11.0
-      range-parser: 1.2.1
-      safe-buffer: 5.2.1
-      send: 0.18.0
-      serve-static: 1.15.0
-      setprototypeof: 1.2.0
-      statuses: 2.0.1
-      type-is: 1.6.18
-      utils-merge: 1.0.1
-      vary: 1.1.2
-    transitivePeerDependencies:
-      - supports-color
-
-  finalhandler@1.2.0:
-    dependencies:
-      debug: 2.6.9
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      on-finished: 2.4.1
-      parseurl: 1.3.3
-      statuses: 2.0.1
-      unpipe: 1.0.0
-    transitivePeerDependencies:
-      - supports-color
-
-  forwarded@0.2.0: {}
-
-  fresh@0.5.2: {}
-
   fsevents@2.3.3:
     optional: true
-
-  function-bind@1.1.2: {}
-
-  get-intrinsic@1.2.4:
-    dependencies:
-      es-errors: 1.3.0
-      function-bind: 1.1.2
-      has-proto: 1.0.3
-      has-symbols: 1.0.3
-      hasown: 2.0.2
-
-  gopd@1.0.1:
-    dependencies:
-      get-intrinsic: 1.2.4
-
-  has-property-descriptors@1.0.2:
-    dependencies:
-      es-define-property: 1.0.0
-
-  has-proto@1.0.3: {}
-
-  has-symbols@1.0.3: {}
-
-  hasown@2.0.2:
-    dependencies:
-      function-bind: 1.1.2
-
-  http-errors@2.0.0:
-    dependencies:
-      depd: 2.0.0
-      inherits: 2.0.4
-      setprototypeof: 1.2.0
-      statuses: 2.0.1
-      toidentifier: 1.0.1
-
-  iconv-lite@0.4.24:
-    dependencies:
-      safer-buffer: 2.1.2
 
   iframe-resizer@4.3.9: {}
 
   import-meta-resolve@4.1.0: {}
 
-  inherits@2.0.4: {}
-
-  ipaddr.js@1.9.1: {}
-
-  js-tokens@4.0.0: {}
-
   jschardet@3.0.0: {}
-
-  jsonc-parser@3.2.1: {}
-
-  langium@3.0.0:
-    dependencies:
-      chevrotain: 11.0.3
-      chevrotain-allstar: 0.3.1(chevrotain@11.0.3)
-      vscode-languageserver: 9.0.1
-      vscode-languageserver-textdocument: 1.0.11
-      vscode-uri: 3.0.8
-
-  lodash-es@4.17.21: {}
-
-  loose-envify@1.4.0:
-    dependencies:
-      js-tokens: 4.0.0
 
   lru-cache@6.0.0:
     dependencies:
       yallist: 4.0.0
 
-  media-typer@0.3.0: {}
-
-  merge-descriptors@1.0.1: {}
-
-  methods@1.1.2: {}
-
-  mime-db@1.52.0: {}
-
-  mime-types@2.1.35:
-    dependencies:
-      mime-db: 1.52.0
-
-  mime@1.6.0: {}
-
   minimatch@5.1.6:
     dependencies:
       brace-expansion: 2.0.1
 
-  monaco-editor-wrapper@5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)):
+  monaco-editor-wrapper@5.1.1(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)):
     dependencies:
       '@codingame/monaco-vscode-configuration-service-override': 5.1.1
       '@codingame/monaco-vscode-editor-service-override': 5.1.1
-      '@codingame/monaco-vscode-monarch-service-override': 5.1.1
-      '@codingame/monaco-vscode-textmate-service-override': 5.1.1
-      '@codingame/monaco-vscode-theme-defaults-default-extension': 5.1.1
-      '@codingame/monaco-vscode-theme-service-override': 5.1.1
-      monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
-      monaco-languageclient: 8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)
-      vscode: '@codingame/monaco-vscode-api@5.1.1'
-      vscode-languageclient: 9.0.1
-      vscode-languageserver-protocol: 3.17.5
-      vscode-ws-jsonrpc: 3.3.1
-
-  monaco-languageclient-examples@8.4.1:
-    dependencies:
-      '@codingame/monaco-vscode-configuration-service-override': 5.1.1
-      '@codingame/monaco-vscode-files-service-override': 5.1.1
-      '@codingame/monaco-vscode-groovy-default-extension': 5.1.1
-      '@codingame/monaco-vscode-javascript-default-extension': 5.1.1
-      '@codingame/monaco-vscode-json-default-extension': 5.1.1
-      '@codingame/monaco-vscode-keybindings-service-override': 5.1.1
       '@codingame/monaco-vscode-language-pack-cs': 5.1.1
       '@codingame/monaco-vscode-language-pack-de': 5.1.1
       '@codingame/monaco-vscode-language-pack-es': 5.1.1
@@ -1575,38 +895,16 @@ snapshots:
       '@codingame/monaco-vscode-language-pack-tr': 5.1.1
       '@codingame/monaco-vscode-language-pack-zh-hans': 5.1.1
       '@codingame/monaco-vscode-language-pack-zh-hant': 5.1.1
-      '@codingame/monaco-vscode-lifecycle-service-override': 5.1.1
-      '@codingame/monaco-vscode-localization-service-override': 5.1.1
-      '@codingame/monaco-vscode-python-default-extension': 5.1.1
-      '@codingame/monaco-vscode-standalone-json-language-features': 5.1.1
-      '@codingame/monaco-vscode-standalone-languages': 5.1.1
-      '@codingame/monaco-vscode-standalone-typescript-language-features': 5.1.1
+      '@codingame/monaco-vscode-monarch-service-override': 5.1.1
       '@codingame/monaco-vscode-textmate-service-override': 5.1.1
       '@codingame/monaco-vscode-theme-defaults-default-extension': 5.1.1
       '@codingame/monaco-vscode-theme-service-override': 5.1.1
-      '@codingame/monaco-vscode-typescript-basics-default-extension': 5.1.1
-      '@codingame/monaco-vscode-typescript-language-features-default-extension': 5.1.1
-      '@typefox/monaco-editor-react': 4.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-editor-wrapper@5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)))(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))(react@18.3.1)
-      express: 4.19.2
-      langium: 3.0.0
       monaco-editor: '@codingame/monaco-vscode-editor-api@5.1.1'
-      monaco-editor-wrapper: 5.1.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)(monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1))
       monaco-languageclient: 8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1)
-      pyright: 1.1.363
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      request-light: 0.7.0
       vscode: '@codingame/monaco-vscode-api@5.1.1'
-      vscode-json-languageservice: 5.3.11
       vscode-languageclient: 9.0.1
-      vscode-languageserver: 9.0.1
-      vscode-uri: 3.0.8
+      vscode-languageserver-protocol: 3.17.5
       vscode-ws-jsonrpc: 3.3.1
-      ws: 8.17.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
 
   monaco-languageclient@8.4.0(@codingame/monaco-vscode-api@5.1.1)(@codingame/monaco-vscode-editor-api@5.1.1):
     dependencies:
@@ -1618,23 +916,7 @@ snapshots:
       vscode: '@codingame/monaco-vscode-api@5.1.1'
       vscode-languageclient: 9.0.1
 
-  ms@2.0.0: {}
-
-  ms@2.1.3: {}
-
   nanoid@3.3.7: {}
-
-  negotiator@0.6.3: {}
-
-  object-inspect@1.13.1: {}
-
-  on-finished@2.4.1:
-    dependencies:
-      ee-first: 1.1.1
-
-  parseurl@1.3.3: {}
-
-  path-to-regexp@0.1.7: {}
 
   picocolors@1.0.0: {}
 
@@ -1643,40 +925,6 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
-
-  proxy-addr@2.0.7:
-    dependencies:
-      forwarded: 0.2.0
-      ipaddr.js: 1.9.1
-
-  pyright@1.1.363:
-    optionalDependencies:
-      fsevents: 2.3.3
-
-  qs@6.11.0:
-    dependencies:
-      side-channel: 1.0.6
-
-  range-parser@1.2.1: {}
-
-  raw-body@2.5.2:
-    dependencies:
-      bytes: 3.1.2
-      http-errors: 2.0.0
-      iconv-lite: 0.4.24
-      unpipe: 1.0.0
-
-  react-dom@18.3.1(react@18.3.1):
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
-
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
-
-  request-light@0.7.0: {}
 
   rollup@4.17.2:
     dependencies:
@@ -1700,83 +948,15 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.17.2
       fsevents: 2.3.3
 
-  safe-buffer@5.2.1: {}
-
-  safer-buffer@2.1.2: {}
-
-  scheduler@0.23.2:
-    dependencies:
-      loose-envify: 1.4.0
-
   semver@7.5.4:
     dependencies:
       lru-cache: 6.0.0
 
-  send@0.18.0:
-    dependencies:
-      debug: 2.6.9
-      depd: 2.0.0
-      destroy: 1.2.0
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      etag: 1.8.1
-      fresh: 0.5.2
-      http-errors: 2.0.0
-      mime: 1.6.0
-      ms: 2.1.3
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      statuses: 2.0.1
-    transitivePeerDependencies:
-      - supports-color
-
-  serve-static@1.15.0:
-    dependencies:
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      parseurl: 1.3.3
-      send: 0.18.0
-    transitivePeerDependencies:
-      - supports-color
-
-  set-function-length@1.2.2:
-    dependencies:
-      define-data-property: 1.1.4
-      es-errors: 1.3.0
-      function-bind: 1.1.2
-      get-intrinsic: 1.2.4
-      gopd: 1.0.1
-      has-property-descriptors: 1.0.2
-
-  setprototypeof@1.2.0: {}
-
-  side-channel@1.0.6:
-    dependencies:
-      call-bind: 1.0.7
-      es-errors: 1.3.0
-      get-intrinsic: 1.2.4
-      object-inspect: 1.13.1
-
   source-map-js@1.2.0: {}
-
-  statuses@2.0.1: {}
-
-  toidentifier@1.0.1: {}
-
-  type-is@1.6.18:
-    dependencies:
-      media-typer: 0.3.0
-      mime-types: 2.1.35
 
   typescript@5.4.5: {}
 
   undici-types@5.26.5: {}
-
-  unpipe@1.0.0: {}
-
-  utils-merge@1.0.1: {}
-
-  vary@1.1.2: {}
 
   vite@5.2.11(@types/node@20.11.7):
     dependencies:
@@ -1786,14 +966,6 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.11.7
       fsevents: 2.3.3
-
-  vscode-json-languageservice@5.3.11:
-    dependencies:
-      '@vscode/l10n': 0.0.18
-      jsonc-parser: 3.2.1
-      vscode-languageserver-textdocument: 1.0.11
-      vscode-languageserver-types: 3.17.5
-      vscode-uri: 3.0.8
 
   vscode-jsonrpc@8.2.0: {}
 
@@ -1808,8 +980,6 @@ snapshots:
       vscode-jsonrpc: 8.2.0
       vscode-languageserver-types: 3.17.5
 
-  vscode-languageserver-textdocument@1.0.11: {}
-
   vscode-languageserver-types@3.17.5: {}
 
   vscode-languageserver@9.0.1:
@@ -1820,12 +990,8 @@ snapshots:
 
   vscode-textmate@9.0.0: {}
 
-  vscode-uri@3.0.8: {}
-
   vscode-ws-jsonrpc@3.3.1:
     dependencies:
       vscode-jsonrpc: 8.2.0
-
-  ws@8.17.0: {}
 
   yallist@4.0.0: {}

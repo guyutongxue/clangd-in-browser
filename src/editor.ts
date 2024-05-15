@@ -3,17 +3,11 @@ import getTextmateServiceOverride from "@codingame/monaco-vscode-textmate-servic
 import getThemeServiceOverride from "@codingame/monaco-vscode-theme-service-override";
 // this is required syntax highlighting
 import "@codingame/monaco-vscode-cpp-default-extension";
-import { editor } from "monaco-editor";
-import { MonacoEditorLanguageClientWrapper, UserConfig } from "monaco-editor-wrapper";
-
-import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import { Uri } from "vscode";
-import {
-  BrowserMessageReader,
-  BrowserMessageWriter,
-} from "vscode-languageclient/browser";
+import { BrowserMessageReader, BrowserMessageWriter } from "vscode-languageclient/browser";
+import { MonacoEditorLanguageClientWrapper, UserConfig } from "monaco-editor-wrapper";
+import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import { setClangdStatus } from "./ui";
-
 import {
   FILE_PATH,
   LANGUAGE_ID,
@@ -55,7 +49,6 @@ export const createUserConfig = async (code: string, serverWorker: Worker): Prom
     }
   };
 
-  const theme = document.body.classList.contains("dark") ? 'Default Dark Modern' : 'Default Light Modern';
   const reader = new BrowserMessageReader(serverWorker);
   const writer = new BrowserMessageWriter(serverWorker);
   const readerOnError = reader.onError(() => restart);
@@ -114,16 +107,8 @@ export const createUserConfig = async (code: string, serverWorker: Worker): Prom
             uri: FILE_PATH
           }
         },
-        editorOptions: {
-          quickSuggestionsDelay: 200,
-          inlayHints: {
-            enabled: "offUnlessPressed",
-          }
-        },
         userConfiguration: {
-          json: JSON.stringify({
-            'workbench.colorTheme': theme
-          })
+          json: createUserConfiguration()
         },
         useDiffEditor: false
       }
@@ -148,12 +133,18 @@ export async function createEditor(element: HTMLElement, code: string, serverWor
   return editorInstance;
 }
 
-function toggleEditorTheme() {
+function createUserConfiguration() {
   const theme = document.body.classList.contains("dark") ? 'Default Dark Modern' : 'Default Light Modern';
-  wrapper.getMonacoEditorApp()?.updateUserConfiguration(JSON.stringify({
-      'workbench.colorTheme': theme
-    })
-  )
+  return JSON.stringify({
+    'workbench.colorTheme': theme,
+    'editor.wordBasedSuggestions': 'off',
+    'editor.inlayHints.enabled': 'offUnlessPressed',
+    'editor.quickSuggestionsDelay': 200
+  });
+}
+
+function toggleEditorTheme() {
+  wrapper.getMonacoEditorApp()?.updateUserConfiguration(createUserConfiguration());
 }
 document
   .querySelector("#toggleTheme")!

@@ -26,9 +26,8 @@
     "ansi_up": "^6.0.2",
     "iframe-resizer": "^4.3.9",
     "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@~5.1.1",
-    "monaco-editor-wrapper": "~5.1.0",
+    "monaco-editor-wrapper": "~5.1.1",
     "monaco-languageclient": "~8.4.0",
-    "monaco-languageclient-examples": "~8.4.1",
     "vscode": "npm:@codingame/monaco-vscode-api@~5.1.1",
     "vscode-languageserver": "~9.0.1"
   },
