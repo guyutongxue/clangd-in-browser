@@ -1,7 +1,7 @@
 import "./style.css";
 import { compileAndRun, setClangdStatus, toggleBuildPanel } from "./ui";
 import { ExtendedSearchParams } from "./search_params";
-import { createEditor } from "./editor";
+import { createEditor, createUserConfig } from "./editor";
 
 if (!globalThis.crossOriginIsolated) {
   document.body.innerHTML =
@@ -55,21 +55,19 @@ if (showBuildPanel) {
   toggleBuildPanel();
 }
 
-const disableLsp = params.isExplicitFalse("lsp");
-let serverPromise: Worker;
-if (disableLsp) {
-  setClangdStatus("disabled");
-  serverPromise = await new Promise<never>(() => {});
-} else {
-  serverPromise = await import("./server").then(({ createServer }) => {
+const enableLsp = !params.isExplicitFalse("lsp");
+let serverWorker: Worker;
+if (enableLsp) {
+  serverWorker = await import("./server").then(({ createServer }) => {
     return createServer();
   });
+} else {
+  setClangdStatus("disabled");
+  serverWorker = await new Promise<never>(() => {});
 }
 
-await createEditor(document.getElementById("editor")!, code, serverPromise);
-if (!disableLsp) {
-  // await createClient(await serverPromise);
-}
+const userConfig = await createUserConfig(code, serverWorker, enableLsp);
+await createEditor(document.getElementById("editor")!, userConfig);
 if (runCodeNow) {
   compileAndRun();
 }
