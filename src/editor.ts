@@ -1,4 +1,4 @@
-import getConfigurationServiceOverride from "@codingame/monaco-vscode-configuration-service-override";
+import getConfigurationServiceOverride, { getUserConfiguration } from "@codingame/monaco-vscode-configuration-service-override";
 import getTextmateServiceOverride from "@codingame/monaco-vscode-textmate-service-override";
 import getThemeServiceOverride from "@codingame/monaco-vscode-theme-service-override";
 // this is required syntax highlighting
@@ -108,7 +108,12 @@ export const createUserConfig = async (code: string, serverWorker: Worker): Prom
           }
         },
         userConfiguration: {
-          json: createUserConfiguration()
+          json: JSON.stringify({
+            'workbench.colorTheme': getCurrentTheme(),
+            'editor.wordBasedSuggestions': 'off',
+            'editor.inlayHints.enabled': 'offUnlessPressed',
+            'editor.quickSuggestionsDelay': 200
+          })
         },
         useDiffEditor: false
       }
@@ -133,18 +138,14 @@ export async function createEditor(element: HTMLElement, code: string, serverWor
   return editorInstance;
 }
 
-function createUserConfiguration() {
-  const theme = document.body.classList.contains("dark") ? 'Default Dark Modern' : 'Default Light Modern';
-  return JSON.stringify({
-    'workbench.colorTheme': theme,
-    'editor.wordBasedSuggestions': 'off',
-    'editor.inlayHints.enabled': 'offUnlessPressed',
-    'editor.quickSuggestionsDelay': 200
-  });
+function getCurrentTheme() {
+  return document.body.classList.contains("dark") ? 'Default Dark Modern' : 'Default Light Modern';
 }
 
-function toggleEditorTheme() {
-  wrapper.getMonacoEditorApp()?.updateUserConfiguration(createUserConfiguration());
+async function toggleEditorTheme() {
+  const vscodeUserConfiguration = JSON.parse(await getUserConfiguration()) as Record<string, string>;
+  vscodeUserConfiguration['workbench.colorTheme'] = getCurrentTheme();
+  wrapper.getMonacoEditorApp()?.updateUserConfiguration(JSON.stringify(vscodeUserConfiguration));
 }
 document
   .querySelector("#toggleTheme")!

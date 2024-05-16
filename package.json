@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/emscripten": "^1.39.10",
-    "@types/node": "^20.4.0",
+    "@types/node": "~20.12.12",
     "@types/vscode": "~1.89.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
