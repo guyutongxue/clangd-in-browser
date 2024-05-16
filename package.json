@@ -5,29 +5,35 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:debug": "vite --debug --force",
+    "watch": "tsc -w",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@types/emscripten": "^1.39.10",
-    "@types/node": "^20.4.0",
-    "@types/vscode": "~1.85.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "@types/node": "~20.12.12",
+    "@types/vscode": "~1.89.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
   },
   "dependencies": {
-    "@codingame/monaco-vscode-language-pack-zh-hans": "~1.85.6",
-    "@codingame/monaco-vscode-theme-defaults-default-extension": "~1.85.6",
+    "@codingame/esbuild-import-meta-url-plugin": "~1.0.2",
+    "@codingame/monaco-vscode-configuration-service-override": "~5.1.1",
+    "@codingame/monaco-vscode-cpp-default-extension": "~5.1.1",
+    "@codingame/monaco-vscode-textmate-service-override": "~5.1.1",
+    "@codingame/monaco-vscode-theme-service-override": "~5.1.1",
     "ansi_up": "^6.0.2",
     "iframe-resizer": "^4.3.9",
-    "monaco-editor": "npm:@codingame/monaco-editor-treemended@>=1.85.0 <1.86.0",
-    "monaco-languageclient": ">= 7.3.0 < 7.4.0",
-    "vscode": "npm:@codingame/monaco-vscode-api@>=1.85.0 <1.86.0",
+    "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@~5.1.1",
+    "monaco-editor-wrapper": "~5.1.1",
+    "monaco-languageclient": "~8.4.0",
+    "vscode": "npm:@codingame/monaco-vscode-api@~5.1.1",
     "vscode-languageserver": "~9.0.1"
   },
-  "overrides": {
-    "monaco-editor": "$monaco-editor",
-    "vscode": "$vscode"
-  },
-  "packageManager": "pnpm@9.1.0"
+  "packageManager": "pnpm@9.1.1",
+  "volta": {
+    "node": "20.13.1",
+    "pnpm": "9.1.1"
+  }
 }
