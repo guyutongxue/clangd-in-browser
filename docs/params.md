@@ -14,6 +14,10 @@ Whether use light theme or dark theme. Defaults to user's last time choice or sy
 
 Whether enable Clangd and Language Client. Defaults to `true`.
 
+### `locale` (`string`)
+
+Set the editor's display language. Defaults to English. Available value: `cs` `de` `es` `fr` `it` `ja` `ko` `pl` `pt-br` `qps-ploc` `ru` `tr` `zh-hans` `zh-hant`. (This list could be found in the [source of `monaco-editor-wrapper`](https://github.com/TypeFox/monaco-languageclient/blob/main/packages/wrapper/src/vscode/localeLoader.ts)).
+
 ### `run` (`boolean|"showOnly"`)
 
 Whether to automatically run the code when editor is ready. If `"showOnly"` is provided, the runner panel is shown but won't run the code. Defaults to `false`.

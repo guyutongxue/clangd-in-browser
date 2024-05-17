@@ -1,8 +1,9 @@
-// Use for example
-// http://localhost:5173/?locale=zh-hans or
-// http://localhost:5173/?locale=fr
-// for a localised version
+// Add this preload script because `monaco-editor-wrapper/vscode/locale`
+// needs to be loaded before **ANY** import of `monaco-editor` stuff.
+// Assure that `main.ts` is imported after locale loader initialized.
+
 import { initLocalLoader } from "monaco-editor-wrapper/vscode/locale";
 await initLocalLoader();
 
 import("./main.ts");
+
