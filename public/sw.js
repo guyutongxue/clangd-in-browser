@@ -6,7 +6,7 @@
 
 var self_ = /** @type {ServiceWorkerGlobalScope & typeof globalThis} */ (self);
 
-const CACHE_KEY = "v1";
+const CACHE_KEY = "v2";
 
 /**
  *

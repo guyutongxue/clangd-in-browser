@@ -149,7 +149,7 @@ export function setClangdStatus(strOrVal: string | number, max?: number) {
     status.removeAttribute("data-ready");
     status.removeAttribute("data-disabled");
     status.removeAttribute("data-indeterminate");
-    status.style.setProperty("--progress-value", `${strOrVal}`);
+    status.style.setProperty("--progress-value", `${Math.min(strOrVal, max!)}`);
     status.style.setProperty("--progress-max", `${max}`);
   } else if (strOrVal === "ready") {
     status.setAttribute("data-ready", "");
