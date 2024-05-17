@@ -57,15 +57,15 @@ if (showBuildPanel) {
 }
 
 const enableLsp = !params.isExplicitFalse("lsp");
-let serverWorker: Worker;
+let serverWorkerPromise: Promise<Worker>;
 if (enableLsp) {
-  serverWorker = await createServer();
+  serverWorkerPromise = createServer();
 } else {
   setClangdStatus("disabled");
-  serverWorker = await new Promise<never>(() => {});
+  serverWorkerPromise = new Promise<never>(() => {});
 }
 
-const userConfig = await createUserConfig(code, serverWorker, enableLsp);
+const userConfig = await createUserConfig(code, serverWorkerPromise, enableLsp);
 await createEditor(document.getElementById("editor")!, userConfig);
 if (runCodeNow) {
   compileAndRun();

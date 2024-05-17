@@ -14,7 +14,10 @@ const editorValue = {
   set: (value: string) => {},
 };
 
-export function setEditorValueSource(getter: () => string, setter: (value: string) => void) {
+export function setEditorValueSource(
+  getter: () => string,
+  setter: (value: string) => void
+) {
   editorValue.get = getter;
   editorValue.set = setter;
 }
