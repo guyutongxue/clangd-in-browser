@@ -2,10 +2,7 @@
 
 import { COMPILE_ARGS, FILE_PATH, WORKSPACE_PATH } from "./config";
 import { JsonStream } from "./json_stream";
-import {
-  BrowserMessageReader,
-  BrowserMessageWriter,
-} from "vscode-languageserver/browser";
+import { BrowserMessageReader, BrowserMessageWriter} from "vscode-languageserver/browser";
 
 declare var self: DedicatedWorkerGlobalScope;
 
@@ -141,5 +138,3 @@ reader.listen((data) => {
   resolveStdinReady();
   // console.log("%c%s", "color: red", `${header}${delimiter}${body}`);
 });
-
-export {};

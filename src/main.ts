@@ -2,6 +2,7 @@ import "./style.css";
 import { compileAndRun, setClangdStatus, toggleBuildPanel } from "./ui";
 import { ExtendedSearchParams } from "./search_params";
 import { createEditor, createUserConfig } from "./editor";
+import { createServer } from "./server";
 
 if (!globalThis.crossOriginIsolated) {
   document.body.innerHTML =
@@ -58,9 +59,7 @@ if (showBuildPanel) {
 const enableLsp = !params.isExplicitFalse("lsp");
 let serverWorker: Worker;
 if (enableLsp) {
-  serverWorker = await import("./server").then(({ createServer }) => {
-    return createServer();
-  });
+  serverWorker = await createServer();
 } else {
   setClangdStatus("disabled");
   serverWorker = await new Promise<never>(() => {});
@@ -71,4 +70,3 @@ await createEditor(document.getElementById("editor")!, userConfig);
 if (runCodeNow) {
   compileAndRun();
 }
-

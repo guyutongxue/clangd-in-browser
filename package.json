@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "clean": "vite-node --config ./scripts/vite.node.ts ./scripts/clean.ts",
     "dev": "vite",
     "dev:debug": "vite --debug --force",
     "watch": "tsc -w",
-    "build": "tsc && vite build",
+    "build": "pnpm run clean && tsc && vite build",
+    "build:watch": "pnpm run clean && tsc && vite build --watch",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -15,7 +17,8 @@
     "@types/node": "~20.12.12",
     "@types/vscode": "~1.89.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11"
+    "vite": "^5.2.11",
+    "vite-node": "~1.6.0"
   },
   "dependencies": {
     "@codingame/esbuild-import-meta-url-plugin": "~1.0.2",

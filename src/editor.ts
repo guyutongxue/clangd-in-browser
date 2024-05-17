@@ -1,6 +1,10 @@
 import getConfigurationServiceOverride, { getUserConfiguration } from "@codingame/monaco-vscode-configuration-service-override";
+// these three imports are actually not required here,
+// but the dynamic imports in monaco-editor-wrapper are otherwise blocking in a production build
+// maybe this can ne overcome by using other config options
 import getTextmateServiceOverride from "@codingame/monaco-vscode-textmate-service-override";
 import getThemeServiceOverride from "@codingame/monaco-vscode-theme-service-override";
+import '@codingame/monaco-vscode-theme-defaults-default-extension';
 // this is required syntax highlighting
 import "@codingame/monaco-vscode-cpp-default-extension";
 import { Uri } from "vscode";
@@ -130,8 +134,7 @@ export const createUserConfig = async (code: string, serverWorker: Worker, enabl
   };
 };
 
-export async function createEditor(element: HTMLElement, userConfig: UserConfig) {
-
+export const createEditor = async (element: HTMLElement, userConfig: UserConfig) => {
   element.innerHTML = "";
   await wrapper.initAndStart(userConfig, element!);
   const editorInstance = wrapper.getEditor()!;

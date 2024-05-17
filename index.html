@@ -68,8 +68,8 @@
         // http://localhost:5173/?locale=fr
         // for a localised version
         import { initLocalLoader } from 'monaco-editor-wrapper/vscode/locale';
-        initLocalLoader();
+        await initLocalLoader();
+        import './src/main.ts';
     </script>
-    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

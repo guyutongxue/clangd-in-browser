@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import url from "node:url";
 import { defineConfig } from "vite";
 import importMetaUrlPlugin from "@codingame/esbuild-import-meta-url-plugin";
 
@@ -16,16 +15,19 @@ export default defineConfig({
       "Cross-Origin-Embedder-Policy": "require-corp",
     }
   },
-  // https://github.com/CodinGame/monaco-vscode-api?tab=readme-ov-file#if-you-use-vite
   optimizeDeps: {
     esbuildOptions: {
+      tsconfig: './tsconfig.json',
       plugins: [
         importMetaUrlPlugin
       ]
-  }
+    }
   },
   worker: {
     format: "es"
+  },
+  resolve: {
+    dedupe: ['monaco-editor', 'vscode']
   },
   define: {
     // Server may not provide Content-Length header, get it in build time
