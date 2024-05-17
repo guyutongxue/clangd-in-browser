@@ -1,10 +1,13 @@
-import ClangdWorker from "./main.worker?worker";
+import clangdWorkerUrl from "./main.worker?worker&url";
 import { setClangdStatus } from "./ui";
 
 export async function createServer() {
   let clangdResolve = () => {};
   const clangdReady = new Promise<void>((r) => (clangdResolve = r));
-  const worker = new ClangdWorker();
+  const worker = new Worker(clangdWorkerUrl, {
+    type: 'module',
+    name: 'Server Worker',
+  });
   const readyListener = (e: MessageEvent) => {
     switch (e.data?.type) {
       case "ready": {
@@ -23,4 +26,3 @@ export async function createServer() {
   await clangdReady;
   return worker;
 }
-
