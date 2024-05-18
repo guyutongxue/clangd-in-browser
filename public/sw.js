@@ -23,7 +23,7 @@ const addResourcesToCache = async (resources) => {
  */
 const putInCache = async (request, response) => {
   const url = new URL(request.url);
-  if (url.protocol === "chrome-extension:") {
+  if (url.protocol === "chrome-extension:" || request.method !== "GET") {
     return;
   }
   const cache = await caches.open(CACHE_KEY);
