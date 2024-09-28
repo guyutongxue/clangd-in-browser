@@ -17,22 +17,27 @@
     "@types/node": "~20.12.12",
     "@types/vscode": "~1.89.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11",
+    "vite": "^5.4.8",
     "vite-node": "~1.6.0"
   },
   "dependencies": {
     "@codingame/esbuild-import-meta-url-plugin": "~1.0.2",
-    "@codingame/monaco-vscode-configuration-service-override": "~5.1.1",
-    "@codingame/monaco-vscode-cpp-default-extension": "~5.1.1",
-    "@codingame/monaco-vscode-textmate-service-override": "~5.1.1",
-    "@codingame/monaco-vscode-theme-service-override": "~5.1.1",
+    "@codingame/monaco-vscode-configuration-service-override": "~8.0.4",
+    "@codingame/monaco-vscode-cpp-default-extension": "~8.0.4",
+    "@codingame/monaco-vscode-textmate-service-override": "~8.0.4",
+    "@codingame/monaco-vscode-theme-service-override": "~8.0.4",
     "ansi_up": "^6.0.2",
     "iframe-resizer": "^4.3.9",
-    "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@~5.1.1",
-    "monaco-editor-wrapper": "~5.1.1",
-    "monaco-languageclient": "~8.4.0",
-    "vscode": "npm:@codingame/monaco-vscode-api@~5.1.1",
+    "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@~8.0.4",
+    "monaco-editor-wrapper": "~5.5.3",
+    "monaco-languageclient": "~8.8.3",
+    "vscode": "npm:@codingame/monaco-vscode-api@~8.0.4",
     "vscode-languageserver": "~9.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.21.5"
+    }
   },
   "packageManager": "pnpm@9.1.1",
   "volta": {
