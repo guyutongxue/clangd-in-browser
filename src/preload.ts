@@ -3,6 +3,8 @@
 // Assure that `main.ts` is imported after locale loader initialized.
 
 import { initLocaleLoader } from "monaco-editor-wrapper/vscode/locale";
-await initLocaleLoader();
-await import("./main.ts");
 
+(async () => {
+  await initLocaleLoader();
+  await import("./main.ts");
+})();
