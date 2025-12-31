@@ -40,6 +40,7 @@ if [[ -d wasi-sysroot-$WASI_SDK_VER ]]; then
 else
     wget -O- https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-$WASI_SDK_VER_MAJOR/wasi-sysroot-$WASI_SDK_VER.tar.gz | tar -xz
 fi
+WASI_SYSROOT_DIR=$ROOT_DIR/wasi-sysroot-$WASI_SDK_VER
 
 # 3. Build LLVM
 
@@ -64,11 +65,9 @@ else
     git apply $WORKSPACE_DIR/wait_stdin.patch && touch $ROOT_DIR/llvm-project/.patched-wait-stdin
 fi
 
-## Build clangd (1st time, just for compiler headers)
-emcmake cmake -G Ninja -S llvm -B build \
-    -DCMAKE_CXX_FLAGS="-pthread -Dwait4=__syscall_wait4" \
-    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN" \
-    -DCMAKE_BUILD_TYPE=MinSizeRel \
+## Build a cross-compiling clang (host: <build>, target: wasm32-wasi), for headers and modules
+cmake -G Ninja -S llvm -B build-cross \
+    -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_TARGET_ARCH=wasm32-emscripten \
     -DLLVM_DEFAULT_TARGET_TRIPLE=wasm32-wasi \
     -DLLVM_TARGETS_TO_BUILD=WebAssembly \
@@ -86,15 +85,22 @@ emcmake cmake -G Ninja -S llvm -B build \
     -DLLVM_ENABLE_PIC=OFF \
     -DLLVM_ENABLE_ZLIB=OFF \
     -DCLANG_ENABLE_ARCMT=OFF
-cmake --build build --target clangd
+cmake --build build-cross --target clang
+
+## Precompile C++ standard library modules
+PREBUILT_MODULE_PATH=$ROOT_DIR/prebuilt_modules
+mkdir -p $PREBUILT_MODULE_PATH
+build-cross/bin/clang++ --sysroot=$WASI_SYSROOT_DIR -mllvm -wasm-enable-sjlj -D_WASI_EMULATED_SIGNAL -std=c++2c -Wno-reserved-module-identifier -fprebuilt-module-path=$PREBUILT_MODULE_PATH --precompile $WASI_SYSROOT_DIR/share/libc++/v1/std.cppm -o $PREBUILT_MODULE_PATH/std.pcm
+build-cross/bin/clang++ --sysroot=$WASI_SYSROOT_DIR -mllvm -wasm-enable-sjlj -D_WASI_EMULATED_SIGNAL -std=c++2c -Wno-reserved-module-identifier -fprebuilt-module-path=$PREBUILT_MODULE_PATH --precompile $WASI_SYSROOT_DIR/share/libc++/v1/std.compat.cppm -o $PREBUILT_MODULE_PATH/std.compat.pcm
+cp -r $PREBUILT_MODULE_PATH $WASI_SYSROOT_DIR/modules/
 
 ## Copy installed headers to WASI sysroot
-cp -r build/lib/clang/$LLVM_VER_MAJOR/include/* $ROOT_DIR/wasi-sysroot-$WASI_SDK_VER/include/
+cp -r build-cross/lib/clang/$LLVM_VER_MAJOR/include/* $WASI_SYSROOT_DIR/include/
 
 ## Build clangd (2nd time, for the real thing)
 emcmake cmake -G Ninja -S llvm -B build \
     -DCMAKE_CXX_FLAGS="-pthread -Dwait4=__syscall_wait4" \
-    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s ALLOW_MEMORY_GROWTH -s MAXIMUM_MEMORY=4GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --embed-file=$ROOT_DIR/wasi-sysroot-$WASI_SDK_VER/include@/usr/include" \
+    -DCMAKE_EXE_LINKER_FLAGS="-pthread -s ENVIRONMENT=worker -s NO_INVOKE_RUN -s EXIT_RUNTIME -s INITIAL_MEMORY=2GB -s ALLOW_MEMORY_GROWTH -s MAXIMUM_MEMORY=4GB -s STACK_SIZE=256kB -s EXPORTED_RUNTIME_METHODS=FS,callMain -s MODULARIZE -s EXPORT_ES6 -s WASM_BIGINT -s ASSERTIONS -s ASYNCIFY -s PTHREAD_POOL_SIZE='Math.max(navigator.hardwareConcurrency, 8)' --embed-file=$WASI_SYSROOT_DIR/include@/usr/include --embed-file=$PREBUILT_MODULE_PATH@/modules" \
     -DCMAKE_BUILD_TYPE=MinSizeRel \
     -DLLVM_TARGET_ARCH=wasm32-emscripten \
     -DLLVM_DEFAULT_TARGET_TRIPLE=wasm32-wasi \
